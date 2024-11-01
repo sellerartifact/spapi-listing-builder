@@ -1,4 +1,4 @@
-# pkg-placeholder
+# spapi-listing-builder
 
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
@@ -8,20 +8,11 @@
 
 _description_
 
-> **Note**:
-> Replace `pkg-placeholder`, `_description_` and `antfu` globally to use this template.
-
-## Sponsors
-
-<p align="center">
-  <a href="https://cdn.jsdelivr.net/gh/antfu/static/sponsors.svg">
-    <img src='https://cdn.jsdelivr.net/gh/antfu/static/sponsors.svg'/>
-  </a>
-</p>
+> It is a simple npm package for generating compliant Amazon SP-API listing JSON quickly and efficiently.
 
 ## License
 
-[MIT](./LICENSE) License © 2024-PRESENT [Anthony Fu](https://github.com/antfu)
+[MIT](./LICENSE) License © 2024-PRESENT [wangjue666](https://github.com/wangjue666)
 
 <!-- Badges -->
 
