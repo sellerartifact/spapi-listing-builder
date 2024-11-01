@@ -1,3 +1,5 @@
+import { FeedHeader } from '../FeedHeader'
+
 export interface FeedRelationData { sku: string, parent_sku: string }
 
 export class FeedRelation {
@@ -10,11 +12,7 @@ export class FeedRelation {
 
   main() {
     return {
-      header: {
-        sellerId: this.sellerId,
-        version: '2.0',
-        issueLocale: 'en_US',
-      },
+      header: new FeedHeader(this.sellerId).main(),
       messages: this.genMessage(),
     }
   }

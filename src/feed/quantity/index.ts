@@ -1,3 +1,5 @@
+import { FeedHeader } from '../FeedHeader'
+
 /**
  * @param {string} sku - SKU of the product
  * @param {number} deal_time - 预处理时间 默认2天
@@ -15,11 +17,7 @@ export class FeedQuantity {
 
   main() {
     return {
-      header: {
-        sellerId: this.sellerId,
-        version: '2.0',
-        issueLocale: 'en_US',
-      },
+      header: new FeedHeader(this.sellerId).main(),
       messages: this.genMessage(),
     }
   }

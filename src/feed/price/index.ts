@@ -1,3 +1,5 @@
+import { FeedHeader } from '../FeedHeader'
+
 export interface FeedPriceData { country_code: string, sku: string, sell_price: number, shipping_price?: number }
 
 export class FeedPrice {
@@ -10,11 +12,7 @@ export class FeedPrice {
 
   main() {
     return {
-      header: {
-        sellerId: this.sellerId,
-        version: '2.0',
-        issueLocale: 'en_US',
-      },
+      header: new FeedHeader(this.sellerId).main(),
       messages: this.genMessage(),
     }
   }
