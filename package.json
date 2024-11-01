@@ -1,7 +1,7 @@
 {
   "name": "spapi-listing-builder",
   "type": "module",
-  "version": "0.1.0-beta.1",
+  "version": "0.1.0-beta.2",
   "packageManager": "pnpm@9.9.0",
   "description": "_description_",
   "author": "wangjue666 <wangjuesix@gmail.com>",
@@ -9,7 +9,7 @@
   "homepage": "https://github.com/sellerartifact/spapi-listing-builder#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sellerartifact/spapi-listing-builder.git"
+    "url": "https://github.com/sellerartifact/spapi-listing-builder.git"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
