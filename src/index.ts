@@ -8,3 +8,5 @@ export * from './listing/img'
 export * from './listing/price'
 export * from './listing/quantity'
 export * from './listing/relation'
+
+export * from './SchemaCheck/index'
