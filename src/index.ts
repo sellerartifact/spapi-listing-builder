@@ -1,3 +1,4 @@
+export * from './feed/img'
 export * from './feed/price'
 export * from './feed/quantity'
 
