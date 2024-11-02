@@ -1,6 +1,7 @@
+import { renderListingArrValue } from '@/help'
 import { combineObjAttr } from '../../help'
 
-export interface ListingPriceData { sell_price: number, sku: string, low_price: number, max_price: number }
+export interface ListingPriceData { sell_price: number, low_price?: number, max_price?: number }
 
 export class ListingPrice {
   priceData: ListingPriceData
@@ -58,5 +59,21 @@ export class ListingPrice {
     ])
 
     return sendData
+  }
+
+  genValue() {
+    return renderListingArrValue(
+      {
+        our_price: [
+          {
+            schedule: [
+              {
+                value_with_tax: this.priceData.sell_price,
+              },
+            ],
+          },
+        ],
+      },
+    )
   }
 }

@@ -1,3 +1,4 @@
+import { renderListingArrValue } from '@/help'
 import { combineObjAttr } from '../../help'
 
 export interface ListingQuantityData {
@@ -35,5 +36,13 @@ export class ListingQuantity {
     combineObjAttr(Boolean(this.quantityData.deal_time), sendData, 'lead_time_to_ship_max_days', this.quantityData.deal_time)
 
     return sendData
+  }
+
+  genValue() {
+    return renderListingArrValue({
+      fulfillment_channel_code: 'DEFAULT',
+      quantity: this.quantityData.quantity,
+      lead_time_to_ship_max_days: this.quantityData.deal_time,
+    })
   }
 }

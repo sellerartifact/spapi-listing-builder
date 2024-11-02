@@ -33,8 +33,18 @@ export interface ProductData {
   title: string
   product_description: string
   bullet_points: string[]
-  brand_name?: string
-  condition?: string
+  brand_name: string
+  product_type: 'UPC' | 'EAN' | 'ISBN' | 'GTIN' | ''
+  product_id: string
+  condition: string
+  vendor: string
+  weight: number
+  recommendedBrowseNodes: string[]
+  manufactuer_id: string
+  search_terms: string
+  quantity: number
+  deal_time: number
+  sell_price: number
   imgs: ListingImgData[]
   [key: string]: any
 }
