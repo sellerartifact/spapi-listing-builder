@@ -49,6 +49,8 @@ export interface ProductData {
   quantity: number
   deal_time: number
   sell_price: number
+  country_of_origin: string
+  item_type_keyword: string
   imgs: ListingImgData[]
   [key: string]: any
 }
