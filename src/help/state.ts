@@ -39,7 +39,11 @@ export interface ProductData {
   condition: string
   vendor: string
   weight: number
+  length1: number
+  length2: number
+  length3: number
   recommendedBrowseNodes: string[]
+  is_electric: number
   manufactuer_id: string
   search_terms: string
   quantity: number
