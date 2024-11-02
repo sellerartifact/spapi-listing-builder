@@ -51,6 +51,7 @@ export interface ProductData {
   sell_price: number
   country_of_origin: string
   item_type_keyword: string
+  parent_sku?: string
   imgs: ListingImgData[]
   [key: string]: any
 }

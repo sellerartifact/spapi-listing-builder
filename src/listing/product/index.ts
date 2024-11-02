@@ -1,5 +1,6 @@
 import type { ListingType, ProductData } from '@/help/state'
 import { Condition, ProductBaseInfo } from './BaseInfo'
+import { ProductParentage } from './Parentage'
 
 /**
  * @desc FOLLOW_ASIN - 跟卖ASIN
@@ -48,6 +49,7 @@ export class ListingProduct {
       requirements: 'LISTING',
       attributes: {
         ...new ProductBaseInfo(this.marketplace_id, data).main(),
+        ...new ProductParentage(this.marketplace_id, data).main(),
       },
     }
   }
