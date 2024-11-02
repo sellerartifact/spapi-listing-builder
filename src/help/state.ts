@@ -19,3 +19,22 @@ export const imageTypeJsonMap: {
   OfferImage5: 'other_offer_image_locator_5',
   EEGL: 'image_locator_eegl',
 }
+
+export type Recordable<T = any> = Record<string, T>
+
+export type ListingType = 'FOLLOW_ASIN' | 'LISTING'
+
+export interface ListingImgData {
+  type: string
+  val: string
+}
+
+export interface ProductData {
+  title: string
+  product_description: string
+  bullet_points: string[]
+  brand_name?: string
+  condition?: string
+  imgs: ListingImgData[]
+  [key: string]: any
+}
