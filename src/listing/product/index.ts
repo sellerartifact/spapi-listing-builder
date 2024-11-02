@@ -1,4 +1,4 @@
-import type { ListingType, ProductData } from '@/help/state'
+import type { ListingType, ProductData, Recordable } from '@/help/state'
 import { Condition, ProductBaseInfo } from './BaseInfo'
 import { ProductParentage } from './Parentage'
 
@@ -44,13 +44,16 @@ export class ListingProduct {
 
   renderListing() {
     const data = this.data
+    const attributes: Recordable = {
+      ...new ProductBaseInfo(this.marketplace_id, data).main(),
+    }
+    if (data.parentage_num > 0) {
+      Object.assign(attributes, new ProductParentage(this.marketplace_id, data).main())
+    }
     return {
       productType: data.product_type,
       requirements: 'LISTING',
-      attributes: {
-        ...new ProductBaseInfo(this.marketplace_id, data).main(),
-        ...new ProductParentage(this.marketplace_id, data).main(),
-      },
+      attributes,
     }
   }
 }
