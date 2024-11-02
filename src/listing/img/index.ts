@@ -1,5 +1,5 @@
-import { imageTypeJsonMap } from '@/help/state'
-import type { ListingImgData, Recordable } from '@/help/state'
+import { imageTypeJsonMap } from '../../help/state'
+import type { ListingImgData, Recordable } from '../../help/state'
 
 export class ListingImg {
   imgData: ListingImgData[]

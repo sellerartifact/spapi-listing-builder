@@ -1,5 +1,4 @@
-import { renderListingArrValue } from '@/help'
-import { combineObjAttr } from '../../help'
+import { combineObjAttr, renderListingArrValue } from '../../help'
 
 export interface ListingPriceData { sell_price: number, low_price?: number, max_price?: number }
 
