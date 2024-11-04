@@ -1,5 +1,6 @@
 export * from './feed/img'
 export * from './feed/price'
+export * from './feed/product'
 export * from './feed/quantity'
 export * from './feed/relation'
 
