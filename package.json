@@ -43,7 +43,7 @@
     "dev": "unbuild --stub",
     "lint": "eslint .",
     "prepublishOnly": "nr build",
-    "release": "bumpp && npm publish",
+    "release": "bumpp && npm publish --registry https://registry.npmjs.org",
     "start": "esno src/index.ts",
     "test": "vitest",
     "typecheck": "tsc --noEmit",
