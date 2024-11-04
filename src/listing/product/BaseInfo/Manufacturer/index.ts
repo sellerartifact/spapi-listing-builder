@@ -1,12 +1,12 @@
 import { renderListingArrValue } from '@/help'
 
 export class Manufacturer {
-  vendor: string
-  constructor(vendor: string) {
-    this.vendor = vendor
+  manufacturer?: string
+  constructor(manufacturer?: string) {
+    this.manufacturer = manufacturer
   }
 
   main() {
-    return renderListingArrValue(this.vendor)
+    return renderListingArrValue(this.manufacturer)
   }
 }

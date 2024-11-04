@@ -25,19 +25,21 @@ export type Recordable<T = any> = Record<string, T>
 export type ListingType = 'FOLLOW_ASIN' | 'LISTING'
 
 export interface ListingImgData {
-  type: string
-  val: string
+  type: keyof typeof imageTypeJsonMap
+  url: string
 }
 
-export interface ProductData {
+export type ProductData = Partial<{
+  sku: string
+  product_type: string
   title: string
   product_description: string
   bullet_points: string[]
   brand_name: string
-  product_type: 'UPC' | 'EAN' | 'ISBN' | 'GTIN' | ''
+  product_identifier_type: 'UPC' | 'EAN' | 'ISBN' | 'GTIN' | ''
   product_id: string
   condition: string
-  vendor: string
+  manufacturer: string
   weight: number
   length1: number
   length2: number
@@ -51,7 +53,7 @@ export interface ProductData {
   sell_price: number
   country_of_origin: string
   item_type_keyword: string
-  parent_sku?: string
+  parent_sku: string
   imgs: ListingImgData[]
   [key: string]: any
-}
+}>

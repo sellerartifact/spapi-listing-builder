@@ -21,7 +21,7 @@ export class ListingImg {
       return {
         op: 'replace',
         path: `/attributes/${imageTypeJsonMap[item.type]}`,
-        value: this.genValue(item.val),
+        value: this.genValue(item.url),
       }
     })
   }
@@ -29,7 +29,7 @@ export class ListingImg {
   genValuesMap() {
     const obj: Recordable = {}
     this.imgData.forEach((item) => {
-      obj[imageTypeJsonMap[item.type]] = this.genValue(item.val)
+      obj[imageTypeJsonMap[item.type]] = this.genValue(item.url)
     })
     return obj
   }

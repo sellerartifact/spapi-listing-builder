@@ -11,7 +11,7 @@ export class ListingProduct {
   data: ProductData
   marketplace_id: string
   type: ListingType
-  constructor(marketplace_id: string, type: ListingType, data: ProductData) {
+  constructor(marketplace_id: string, data: ProductData, type: ListingType = 'LISTING') {
     this.marketplace_id = marketplace_id
     this.type = type
     this.data = data
@@ -24,6 +24,7 @@ export class ListingProduct {
     else if (this.type === 'LISTING') {
       return this.renderListing()
     }
+    throw new Error(`Invalid type: ${this.type}`)
   }
 
   renderFollowAsin() {
@@ -47,7 +48,7 @@ export class ListingProduct {
     const attributes: Recordable = {
       ...new ProductBaseInfo(this.marketplace_id, data).main(),
     }
-    if (data.parentage_num > 0) {
+    if (data.parentage) {
       Object.assign(attributes, new ProductParentage(this.marketplace_id, data).main())
     }
     return {

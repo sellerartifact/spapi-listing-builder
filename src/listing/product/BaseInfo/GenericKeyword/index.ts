@@ -1,8 +1,8 @@
 import { renderListingArrValue } from '@/help'
 
 export class GenericKeyword {
-  search_terms: string
-  constructor(search_terms: string) {
+  search_terms?: string
+  constructor(search_terms?: string) {
     this.search_terms = search_terms
   }
 

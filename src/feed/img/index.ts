@@ -5,7 +5,7 @@ export interface FeedImgData {
   sku: string
   imgs: {
     type: string
-    val: string
+    url: string
   }[]
 }
 
@@ -45,7 +45,7 @@ export class FeedImg {
         path: `/attributes/${imageTypeJsonMap[item.type]}`,
         value: [
           {
-            media_location: item.val,
+            media_location: item.url,
           },
         ],
       }

@@ -3,8 +3,8 @@ import { FeedImg } from '../../src/index'
 
 describe('should', () => {
   const t1 = new FeedImg('sellerId', [{ sku: 'sku-1', imgs: [
-    { type: 'Main', val: 'http://main.jpg' },
-    { type: 'Swatch', val: 'http://thumb.jpg' },
+    { type: 'Main', url: 'http://main.jpg' },
+    { type: 'Swatch', url: 'http://thumb.jpg' },
   ] }])
   it('t1 message', () => {
     const obj = t1.main()
