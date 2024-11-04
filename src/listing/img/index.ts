@@ -1,11 +1,11 @@
-import { imageTypeJsonMap } from '../../help/state'
+import { getImageType } from '../../help/state'
 import type { ListingImgData, Recordable } from '../../help/state'
 
 export class ListingImg {
   imgData: ListingImgData[]
   constructor(imgData: ListingImgData[]) {
     this.imgData = imgData.filter((item) => {
-      return imageTypeJsonMap[item.type]
+      return getImageType(item.type)
     })
   }
 
@@ -20,7 +20,7 @@ export class ListingImg {
     return this.imgData.map((item) => {
       return {
         op: 'replace',
-        path: `/attributes/${imageTypeJsonMap[item.type]}`,
+        path: `/attributes/${getImageType(item.type)}`,
         value: this.genValue(item.url),
       }
     })
@@ -29,7 +29,7 @@ export class ListingImg {
   genValuesMap() {
     const obj: Recordable = {}
     this.imgData.forEach((item) => {
-      obj[imageTypeJsonMap[item.type]] = this.genValue(item.url)
+      obj[getImageType(item.type) as string] = this.genValue(item.url)
     })
     return obj
   }

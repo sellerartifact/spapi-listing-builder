@@ -1,29 +1,29 @@
 import { renderListingArrValue } from '@/help'
 
 export class ItemDimensions {
-  length1: number
-  length2: number
-  length3: number
+  height: number
+  length: number
+  width: number
 
-  constructor(length1: number, length2: number = 1, length3: number = 1) {
-    this.length1 = length1
-    this.length2 = length2
-    this.length3 = length3
+  constructor(height: number, length: number = 1, width: number = 1) {
+    this.height = height
+    this.length = length
+    this.width = width
   }
 
   main() {
     return renderListingArrValue({
       height: {
         unit: 'centimeters',
-        value: this.length1,
+        value: this.height,
       },
       length: {
         unit: 'centimeters',
-        value: this.length2,
+        value: this.length,
       },
       width: {
         unit: 'centimeters',
-        value: this.length3,
+        value: this.width,
       },
     })
   }

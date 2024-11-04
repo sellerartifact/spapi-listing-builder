@@ -1,4 +1,4 @@
-import type { ProductData } from '../../../src/index'
+import type { ProductData } from '@/help/state'
 
 export const listingData: ProductData = {
   sku: 'SKU-1234',
@@ -11,16 +11,16 @@ export const listingData: ProductData = {
   ],
   brand_name: 'i am brand name',
   product_identifier_type: 'EAN',
-  product_id: '123457689',
+  product_identifier_id: '123457689',
   condition: 'new_new',
   manufacturer: 'your manufacturer',
+  manufactuer_id: '9527',
   weight: 1,
-  length1: 1,
-  length2: 2,
-  length3: 3,
+  height: 1,
+  length: 2,
+  width: 3,
   recommendedBrowseNodes: ['123', '456'],
   is_electric: 0,
-  manufactuer_id: '9527',
   search_terms: 'i am search terms',
   quantity: 99,
   deal_time: 2,

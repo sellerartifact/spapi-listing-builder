@@ -1,6 +1,4 @@
-export const imageTypeJsonMap: {
-  [key: string]: string
-} = {
+export const imageTypeJsonMap = {
   Main: 'main_product_image_locator',
   Swatch: 'swatch_product_image_locator',
   PT1: 'other_product_image_locator_1',
@@ -20,6 +18,10 @@ export const imageTypeJsonMap: {
   EEGL: 'image_locator_eegl',
 }
 
+export function getImageType(key: string): string | undefined {
+  return (imageTypeJsonMap as any)[key]
+}
+
 export type Recordable<T = any> = Record<string, T>
 
 export type ListingType = 'FOLLOW_ASIN' | 'LISTING'
@@ -37,15 +39,15 @@ export type ProductData = Partial<{
   bullet_points: string[]
   brand_name: string
   product_identifier_type: 'UPC' | 'EAN' | 'ISBN' | 'GTIN' | ''
-  product_id: string
+  product_identifier_id: string
   condition: string
   manufacturer: string
   weight: number
-  length1: number
-  length2: number
-  length3: number
+  height: number
+  length: number
+  width: number
   recommendedBrowseNodes: string[]
-  is_electric: number
+  batteries_required: number // 是否需要电池
   manufactuer_id: string
   search_terms: string
   quantity: number

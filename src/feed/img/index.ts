@@ -1,4 +1,4 @@
-import { imageTypeJsonMap } from '../../help/state'
+import { getImageType } from '@/help/state'
 import { FeedHeader } from '../FeedHeader'
 
 export interface FeedImgData {
@@ -38,11 +38,11 @@ export class FeedImg {
 
   genPatches(imgs: FeedImgData['imgs']) {
     return imgs.filter((item) => {
-      return imageTypeJsonMap[item.type]
+      return getImageType(item.type)
     }).map((item) => {
       return {
         op: 'replace',
-        path: `/attributes/${imageTypeJsonMap[item.type]}`,
+        path: `/attributes/${getImageType(item.type)}`,
         value: [
           {
             media_location: item.url,
