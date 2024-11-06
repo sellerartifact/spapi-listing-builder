@@ -3,7 +3,9 @@ import Draft from 'json-schema-library'
 export class SchemaCheck {
   jsonSchema: Draft.Draft2019
   data: object
+  schema: object
   constructor(schema: object, data: object) {
+    this.schema = schema
     this.jsonSchema = new Draft.Draft2019(schema)
     this.data = data
   }
@@ -13,7 +15,7 @@ export class SchemaCheck {
   }
 
   getRequiredFields(): string[] {
-    return (this.jsonSchema as any).required
+    return (this.schema as any).required
   }
 
   getRequiredSchema() {
