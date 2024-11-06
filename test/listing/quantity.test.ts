@@ -5,7 +5,7 @@ describe('should', () => {
   const t1 = new ListingQuantity({ quantity: 3, deal_time: 2 })
   it('t1 message', () => {
     const obj = t1.main()
-    console.log(JSON.stringify(obj.patches[0]))
+    console.log(JSON.stringify(obj.patches[0], null, 2))
     expect(obj.patches.length).toEqual(1)
   })
 })

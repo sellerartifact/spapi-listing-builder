@@ -10,6 +10,18 @@ _description_
 
 > It is a simple npm package for generating compliant Amazon SP-API listing JSON quickly and efficiently.
 
+## install
+
+```
+pnpm install spapi-listing-builder --save
+```
+
+## usage
+
+```
+import { ListingProduct } from "spapi-listing-builder";
+```
+
 ## License
 
 [MIT](./LICENSE) License © 2024-PRESENT [wangjue666](https://github.com/wangjue666)
