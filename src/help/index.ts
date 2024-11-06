@@ -24,7 +24,7 @@ export function renderListingArrValue(value: any) {
   if (typeof value === 'object') {
     return [{ ...value }]
   }
-  else if (typeof value === 'number') {
+  else if (typeof value === 'number' || typeof value === 'boolean') {
     return [{ value: value.toString() }]
   }
   return [{ value }]

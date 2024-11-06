@@ -11,4 +11,15 @@ export class SchemaCheck {
   validate() {
     return this.jsonSchema.validate(this.data)
   }
+
+  getRequiredFields(): string[] {
+    return (this.jsonSchema as any).required
+  }
+
+  getRequiredSchema() {
+    const requiredFields = this.getRequiredFields()
+    return requiredFields.map((item) => {
+      return this.jsonSchema.getSchema({ pointer: item })
+    })
+  }
 }

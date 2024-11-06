@@ -25,7 +25,10 @@ export class FeedProduct {
         messageId: idx + 1,
         sku: item.sku,
         operationType: 'UPDATE',
-        ...new ListingProduct(this.marketplace_id, item).main(),
+        ...new ListingProduct({
+          marketplace_id: this.marketplace_id,
+          data: item,
+        }).main(),
       }
     })
   }

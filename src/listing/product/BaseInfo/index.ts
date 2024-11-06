@@ -3,7 +3,7 @@ import { ListingImg } from '@/listing/img'
 import { ListingPrice } from '@/listing/price'
 import { ListingQuantity } from '@/listing/quantity'
 import type { ProductData } from '@/help/state'
-import { BatteriesRequired, Brand, BulletPoint, Condition, CountryOfOrigin, Description, GenericKeyword, GiftOptions, ItemDimensions, ItemName, ItemPackageQuantity, ItemTypeKeyword, ItemWeight, Manufacturer, MaxOrderQuantity, NumberOfItems, PartNumber, ProductIdentifier, ProductTaxCode, RecommendedBrowseNodes, SupplierDeclaredDgHzRegulation } from './help'
+import { BatteriesRequired, Brand, BulletPoint, Condition, CountryOfOrigin, Description, GenericKeyword, GiftOptions, ItemDimensions, ItemName, ItemPackageQuantity, ItemTypeKeyword, ItemWeight, ListPrice, Manufacturer, MaxOrderQuantity, NumberOfItems, PartNumber, ProductIdentifier, ProductTaxCode, RecommendedBrowseNodes, SupplierDeclaredDgHzRegulation, SupplierDeclaredHasProductIdentifierExemption } from './help'
 
 export * from './help'
 
@@ -19,6 +19,7 @@ export class ProductBaseInfo {
     const data = this.data
     return filterUndefinedKeys({
       purchasable_offer: data.sell_price && new ListingPrice({ sell_price: data.sell_price }).genValue(),
+      list_price: data.list_price && new ListPrice(data.list_price).main(),
       fulfillment_availability: data.quantity && new ListingQuantity({ quantity: data.quantity, deal_time: data.deal_time }).genValue(),
       item_name: new ItemName(data.title).main(),
       BatteriesRequired: new BatteriesRequired(data.is_electric).main(),
@@ -41,6 +42,7 @@ export class ProductBaseInfo {
       brand: new Brand(data.brand_name).main(),
       generic_keyword: new GenericKeyword(data.search_terms).main(),
       country_of_origin: new CountryOfOrigin(data.country_of_origin).main(),
+      supplier_declared_has_product_identifier_exemption: new SupplierDeclaredHasProductIdentifierExemption(data.supplier_declared_has_product_identifier_exemption).main(),
       ...(data.imgs ? new ListingImg(data.imgs).genValuesMap() : []),
     })
   }

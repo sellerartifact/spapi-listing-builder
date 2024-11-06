@@ -6,14 +6,23 @@ import type { Recordable } from '../../../src/index'
 
 describe('should', () => {
   it('listing结构', () => {
-    const t1 = new ListingProduct('ATVPDKIKX0DER', listingData)
+    const t1 = new ListingProduct({
+      marketplace_id: 'ATVPDKIKX0DER',
+      data: listingData,
+      renderOtherAttributesFn: ({ renderListingArrValue, data }) => {
+        return {
+          list_price: renderListingArrValue(data.sell_price),
+        }
+      },
+    })
     const obj: Recordable = t1.main()
     console.log(JSON.stringify(obj, null, 2))
     expect(obj.attributes.item_name[0].value).toEqual(listingData.title)
+    expect(obj.attributes.list_price[0].value).toEqual(String(listingData.sell_price))
   })
 
   it('有变体的父产品', () => {
-    const t1 = new ListingProduct('ATVPDKIKX0DER', parentListingData)
+    const t1 = new ListingProduct({ marketplace_id: 'ATVPDKIKX0DER', data: parentListingData })
     const obj: Recordable = t1.main()
     console.log(JSON.stringify(obj, null, 2))
     expect(obj.attributes.item_name[0].value).toEqual(parentListingData.title)
@@ -22,8 +31,8 @@ describe('should', () => {
   })
 
   it('变体产品', () => {
-    const t1 = new ListingProduct('ATVPDKIKX0DER', childListingData1)
-    const t2 = new ListingProduct('ATVPDKIKX0DER', childListingData2)
+    const t1 = new ListingProduct({ marketplace_id: 'ATVPDKIKX0DER', data: childListingData1 })
+    const t2 = new ListingProduct({ marketplace_id: 'ATVPDKIKX0DER', data: childListingData2 })
     const obj1: Recordable = t1.main()
     const obj2: Recordable = t2.main()
     console.log(JSON.stringify(obj1, null, 2))

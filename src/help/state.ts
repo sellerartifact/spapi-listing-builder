@@ -53,6 +53,7 @@ export type ProductData = Partial<{
   quantity: number
   deal_time: number
   sell_price: number
+  list_price: number
   country_of_origin: string
   item_type_keyword: string
   parent_sku: string
