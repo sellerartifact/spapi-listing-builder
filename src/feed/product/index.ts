@@ -1,15 +1,17 @@
 import { ListingProduct } from '@/listing/product'
-import type { ProductData } from '@/help/state'
+import type { ProductData, RenderOtherAttributesFn } from '@/help/state'
 import { FeedHeader } from '../FeedHeader'
 
 export class FeedProduct {
   sellerId: string
   list: ProductData[]
   marketplace_id: string
-  constructor(sellerId: string, marketplace_id: string, list: ProductData[]) {
+  renderOtherAttributesFn?: RenderOtherAttributesFn
+  constructor(sellerId: string, marketplace_id: string, list: ProductData[], renderOtherAttributesFn?: RenderOtherAttributesFn) {
     this.sellerId = sellerId
     this.marketplace_id = marketplace_id
     this.list = list
+    this.renderOtherAttributesFn = renderOtherAttributesFn
   }
 
   main() {
@@ -28,6 +30,7 @@ export class FeedProduct {
         ...new ListingProduct({
           marketplace_id: this.marketplace_id,
           data: item,
+          renderOtherAttributesFn: this.renderOtherAttributesFn,
         }).main(),
       }
     })

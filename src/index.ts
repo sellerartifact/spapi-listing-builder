@@ -4,6 +4,7 @@ export * from './feed/product'
 export * from './feed/quantity'
 export * from './feed/relation'
 
+export * from './help/index'
 export * from './help/state'
 export * from './listing/img'
 export * from './listing/price'

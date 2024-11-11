@@ -51,4 +51,17 @@ export class SchemaCheck {
       }
     })
   }
+
+  convertRequiredSchema2FormItems() {
+    return this.getRequiredFields().map((field) => {
+      const schema = this.jsonSchema.getSchema({ pointer: field })
+      try {
+        return new ConvertSchemaItem2FormItem(field, schema, this.required).main()
+      }
+      catch (e) {
+        console.error(e)
+        return undefined
+      }
+    })
+  }
 }

@@ -1,9 +1,7 @@
 import { renderListingArrValue as renderListingArrValueHelp } from '@/help'
-import type { ListingType, ProductData, Recordable } from '@/help/state'
+import type { ListingType, ProductData, Recordable, RenderOtherAttributesFn } from '@/help/state'
 import { Condition, ProductBaseInfo } from './BaseInfo'
 import { ProductParentage } from './Parentage'
-
-type RenderOtherAttributesFn = (params: { attributes: Recordable, data: ProductData, renderListingArrValue: typeof renderListingArrValueHelp }) => Recordable
 
 interface ListingProductConstructor {
   marketplace_id: string

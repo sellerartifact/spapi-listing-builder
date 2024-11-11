@@ -1,3 +1,5 @@
+import type { renderListingArrValue as renderListingArrValueHelp } from './index'
+
 export const imageTypeJsonMap = {
   Main: 'main_product_image_locator',
   Swatch: 'swatch_product_image_locator',
@@ -60,3 +62,5 @@ export type ProductData = Partial<{
   imgs: ListingImgData[]
   [key: string]: any
 }>
+
+export type RenderOtherAttributesFn = (params: { attributes: Recordable, data: ProductData, renderListingArrValue: typeof renderListingArrValueHelp }) => Recordable

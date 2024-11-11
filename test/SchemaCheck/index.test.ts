@@ -121,7 +121,14 @@ describe('schemaCheck should', () => {
 
   it('convert2FormItems should', () => {
     const list = schemaCheck.convert2FormItems()
-    console.log(list)
+    console.log(JSON.stringify(list, null, 2))
+    expect(Array.isArray(list)).toEqual(true)
+  })
+
+  it('convertRequiredSchema2FormItems should', () => {
+    const list = schemaCheck.convertRequiredSchema2FormItems()
+    console.log(JSON.stringify(list, null, 2))
+    fs.writeFileSync('./test.json', JSON.stringify(list, null, 2))
     expect(Array.isArray(list)).toEqual(true)
   })
 })
