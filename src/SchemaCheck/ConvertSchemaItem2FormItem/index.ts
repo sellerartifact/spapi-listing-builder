@@ -35,7 +35,7 @@ export class ConvertSchemaItem2FormItem {
     })
   }
 
-  predictComponentData(properties: Recordable) {
+  predictComponentData(properties: Recordable): any {
     const { type, description, enumNames } = properties
     if (enumNames) {
       const options = enumNames.map((label: string, idx: number) => {
@@ -85,6 +85,9 @@ export class ConvertSchemaItem2FormItem {
           placeholder: description,
         },
       }
+    }
+    else if (type === 'array') {
+      return this.predictComponentData(properties.items.properties[properties.items.required[0]])
     }
     console.log('properties', properties)
     throw new Error(`predictComponentData: Unknown type--${type}`)
