@@ -188,6 +188,7 @@ schemaCheck.convertRequiredSchema2FormItems()
 ## Listing接口相关用法
 
 - 上传产品 [ListingProduct](#上传产品)
+- 上传跟卖产品 [ListingProduct](#上传跟卖产品)
 - 设置产品库存 [ListingQuantity](#设置产品库存)
 - 设置产品价格 [ListingPrice](#设置产品价格)
 - 设置产品图片 [ListingImg](#设置产品图片)
@@ -417,6 +418,59 @@ new ListingProduct({
   }
 }
 
+```
+
+</details>
+
+### 上传跟卖产品
+
+<details><summary>Example</summary>
+
+```
+const follow_goods = new ListingProduct({ marketplace_id: 'ATVPDKIKX0DER', data: {
+  asin: 'B07Z8Z1VCC',
+  condition: 'New',
+  quantity: 100,
+  deal_time: 3,
+  sell_price: 88.88,
+}, type: 'FOLLOW_ASIN' }).main()
+
+// 返回结果
+{
+  "requirements": "LISTING_OFFER_ONLY",
+  "attributes": {
+    "condition_type": [
+      {
+        "value": "New"
+      }
+    ],
+    "merchant_suggested_asin": [
+      {
+        "value": "B07Z8Z1VCC"
+      }
+    ],
+    "fulfillment_availability": [
+      {
+        "fulfillment_channel_code": "DEFAULT",
+        "quantity": 100,
+        "lead_time_to_ship_max_days": 3
+      }
+    ],
+    "purchasable_offer": [
+      {
+        "our_price": [
+          {
+            "schedule": [
+              {
+                "value_with_tax": 88.88
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
 ```
 
 </details>

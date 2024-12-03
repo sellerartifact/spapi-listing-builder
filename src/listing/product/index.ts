@@ -1,5 +1,7 @@
 import { renderListingArrValue as renderListingArrValueHelp } from '@/help'
 import type { ListingType, ProductData, Recordable, RenderOtherAttributesFn } from '@/help/state'
+import { ListingPrice } from '../price'
+import { ListingQuantity } from '../quantity'
 import { Condition, ProductBaseInfo } from './BaseInfo'
 import { ProductParentage } from './Parentage'
 
@@ -47,11 +49,13 @@ export class ListingProduct {
           value: data.asin,
         },
       ],
+      fulfillment_availability: data.quantity && new ListingQuantity({ quantity: data.quantity, deal_time: data.deal_time }).genValue(),
+      purchasable_offer: data.sell_price && new ListingPrice({ sell_price: data.sell_price }).genValue(),
     }
     Object.assign(attributes, this.callRenderOtherAttributesFn(attributes))
     return {
       productType: data.product_type,
-      requirements: 'LISTING',
+      requirements: 'LISTING_OFFER_ONLY',
       attributes,
     }
   }
@@ -70,7 +74,6 @@ export class ListingProduct {
       productType: data.product_type,
       requirements: 'LISTING',
       attributes,
-
     }
   }
 

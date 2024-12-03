@@ -40,4 +40,19 @@ describe('should', () => {
     expect(obj2.attributes.parentage_level[0].value).toEqual('child')
     expect(obj1.attributes.variation_theme[0].value).toEqual('SIZE_NAME/COLOR_NAME')
   })
+
+  it('跟卖产品', () => {
+    const follow_goods = new ListingProduct({ marketplace_id: 'ATVPDKIKX0DER', data: {
+      asin: 'B07Z8Z1VCC',
+      condition: 'New',
+      quantity: 100,
+      deal_time: 3,
+      sell_price: 88.88,
+    }, type: 'FOLLOW_ASIN' }).main()
+
+    console.log(JSON.stringify(follow_goods, null, 2))
+    expect(follow_goods.attributes.condition_type[0].value).toEqual('New')
+    expect(follow_goods.attributes.merchant_suggested_asin[0].value).toEqual('B07Z8Z1VCC')
+    expect(follow_goods.attributes.fulfillment_availability[0].quantity).toEqual(100)
+  })
 })
