@@ -430,7 +430,7 @@ new ListingProduct({
 const follow_goods = new ListingProduct({ marketplace_id: 'ATVPDKIKX0DER', data: {
   product_type: 'HOME',
   asin: 'B07Z8Z1VCC',
-  condition: 'New',
+  condition: 'new_new',
   quantity: 100,
   deal_time: 3,
   sell_price: 88.88,
@@ -443,7 +443,7 @@ const follow_goods = new ListingProduct({ marketplace_id: 'ATVPDKIKX0DER', data:
   "attributes": {
     "condition_type": [
       {
-        "value": "New"
+        "value": "new_new"
       }
     ],
     "merchant_suggested_asin": [
