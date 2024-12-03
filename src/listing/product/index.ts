@@ -1,4 +1,4 @@
-import { renderListingArrValue as renderListingArrValueHelp } from '@/help'
+import { filterUndefinedKeys, renderListingArrValue as renderListingArrValueHelp } from '@/help'
 import type { ListingType, ProductData, Recordable, RenderOtherAttributesFn } from '@/help/state'
 import { ListingPrice } from '../price'
 import { ListingQuantity } from '../quantity'
@@ -49,7 +49,7 @@ export class ListingProduct {
           value: data.asin,
         },
       ],
-      fulfillment_availability: data.quantity && new ListingQuantity({ quantity: data.quantity, deal_time: data.deal_time }).genValue(),
+      fulfillment_availability: new ListingQuantity({ quantity: data.quantity || 0, deal_time: data.deal_time }).genValue(),
       purchasable_offer: data.sell_price && new ListingPrice({ sell_price: data.sell_price }).genValue(),
       max_order_quantity: new MaxOrderQuantity(data.max_order_quantity).main(),
     }
@@ -57,7 +57,7 @@ export class ListingProduct {
     return {
       productType: data.product_type,
       requirements: 'LISTING_OFFER_ONLY',
-      attributes,
+      attributes: filterUndefinedKeys(attributes),
     }
   }
 

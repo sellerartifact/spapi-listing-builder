@@ -43,6 +43,7 @@ describe('should', () => {
 
   it('跟卖产品', () => {
     const follow_goods = new ListingProduct({ marketplace_id: 'ATVPDKIKX0DER', data: {
+      product_type: 'HOME',
       asin: 'B07Z8Z1VCC',
       condition: 'New',
       quantity: 100,

@@ -428,6 +428,7 @@ new ListingProduct({
 
 ```
 const follow_goods = new ListingProduct({ marketplace_id: 'ATVPDKIKX0DER', data: {
+  product_type: 'HOME',
   asin: 'B07Z8Z1VCC',
   condition: 'New',
   quantity: 100,
@@ -437,6 +438,7 @@ const follow_goods = new ListingProduct({ marketplace_id: 'ATVPDKIKX0DER', data:
 
 // 返回结果
 {
+  "productType": "HOME",
   "requirements": "LISTING_OFFER_ONLY",
   "attributes": {
     "condition_type": [

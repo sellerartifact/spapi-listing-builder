@@ -1,9 +1,9 @@
 {
   "name": "spapi-listing-builder",
   "type": "module",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "packageManager": "pnpm@9.9.0",
-  "description": "_description_",
+  "description": "It is a simple npm package for generating compliant Amazon SP-API listing JSON quickly and efficiently.",
   "author": "wangjue666 <wangjuesix@gmail.com>",
   "license": "MIT",
   "homepage": "https://github.com/sellerartifact/spapi-listing-builder#readme",
@@ -15,7 +15,11 @@
     "registry": "https://registry.npmjs.org/"
   },
   "bugs": "https://github.com/sellerartifact/spapi-listing-builder/issues",
-  "keywords": [],
+  "keywords": [
+    "amazon",
+    "spapi listing",
+    "sp-api listing"
+  ],
   "sideEffects": false,
   "exports": {
     ".": {
