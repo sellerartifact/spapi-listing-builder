@@ -2,7 +2,7 @@ import { renderListingArrValue as renderListingArrValueHelp } from '@/help'
 import type { ListingType, ProductData, Recordable, RenderOtherAttributesFn } from '@/help/state'
 import { ListingPrice } from '../price'
 import { ListingQuantity } from '../quantity'
-import { Condition, ProductBaseInfo } from './BaseInfo'
+import { Condition, MaxOrderQuantity, ProductBaseInfo } from './BaseInfo'
 import { ProductParentage } from './Parentage'
 
 interface ListingProductConstructor {
@@ -51,6 +51,7 @@ export class ListingProduct {
       ],
       fulfillment_availability: data.quantity && new ListingQuantity({ quantity: data.quantity, deal_time: data.deal_time }).genValue(),
       purchasable_offer: data.sell_price && new ListingPrice({ sell_price: data.sell_price }).genValue(),
+      max_order_quantity: new MaxOrderQuantity(data.max_order_quantity).main(),
     }
     Object.assign(attributes, this.callRenderOtherAttributesFn(attributes))
     return {
