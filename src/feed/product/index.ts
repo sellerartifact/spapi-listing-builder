@@ -1,5 +1,5 @@
 import { ListingProduct } from '@/listing/product'
-import type { ProductData, RenderOtherAttributesFn } from '@/help/state'
+import type { ListingType, ProductData, RenderOtherAttributesFn } from '@/help/state'
 import { FeedHeader } from '../FeedHeader'
 
 export class FeedProduct {
@@ -14,14 +14,14 @@ export class FeedProduct {
     this.renderOtherAttributesFn = renderOtherAttributesFn
   }
 
-  main() {
+  main(type?: ListingType) {
     return {
       header: new FeedHeader(this.sellerId).main(),
-      messages: this.genMessage(),
+      messages: this.genMessage(type),
     }
   }
 
-  genMessage() {
+  genMessage(type?: ListingType) {
     return this.list.map((item, idx) => {
       return {
         messageId: idx + 1,
@@ -31,6 +31,7 @@ export class FeedProduct {
           marketplace_id: this.marketplace_id,
           data: item,
           renderOtherAttributesFn: this.renderOtherAttributesFn,
+          type,
         }).main(),
       }
     })
