@@ -3,6 +3,7 @@ import { combineObjAttr, renderListingArrValue } from '../../help'
 export interface ListingQuantityData {
   quantity: number
   deal_time?: number
+  fulfillment_channel_code?: string
 }
 
 export class ListingQuantity {
@@ -29,6 +30,7 @@ export class ListingQuantity {
   genPatche() {
     const sendData: any = {
       audience: 'ALL',
+      fulfillment_channel_code: this.quantityData.fulfillment_channel_code || 'DEFAULT',
     }
     combineObjAttr(this.quantityData.quantity, sendData, 'quantity', this.quantityData.quantity)
 
