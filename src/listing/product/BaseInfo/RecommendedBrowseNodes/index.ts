@@ -1,5 +1,3 @@
-import { renderListingArrValue } from '@/help'
-
 export class RecommendedBrowseNodes {
   recommendedBrowseNodes: string[]
   constructor(recommendedBrowseNodes: string[]) {
@@ -8,7 +6,9 @@ export class RecommendedBrowseNodes {
 
   main() {
     return this.recommendedBrowseNodes.map((item) => {
-      return renderListingArrValue(item)
+      return {
+        value: item,
+      }
     })
   }
 }

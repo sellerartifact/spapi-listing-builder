@@ -320,16 +320,12 @@ new ListingProduct({
       }
     ],
     "recommended_browse_nodes": [
-      [
         {
           "value": "123"
-        }
-      ],
-      [
+        },
         {
           "value": "456"
         }
-      ]
     ],
     "bullet_point": [
       {
