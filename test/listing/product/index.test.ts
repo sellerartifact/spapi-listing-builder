@@ -27,7 +27,7 @@ describe('should', () => {
     console.log(JSON.stringify(obj, null, 2))
     expect(obj.attributes.item_name[0].value).toEqual(parentListingData.title)
     expect(obj.attributes.parentage_level[0].value).toEqual('parent')
-    expect(obj.attributes.variation_theme[0].value).toEqual('SIZE_NAME/COLOR_NAME')
+    expect(obj.attributes.variation_theme[0].name).toEqual('SIZE_NAME/COLOR_NAME')
   })
 
   it('变体产品', () => {
@@ -38,7 +38,7 @@ describe('should', () => {
     console.log(JSON.stringify(obj1, null, 2))
     expect(obj1.attributes.parentage_level[0].value).toEqual('child')
     expect(obj2.attributes.parentage_level[0].value).toEqual('child')
-    expect(obj1.attributes.variation_theme[0].value).toEqual('SIZE_NAME/COLOR_NAME')
+    expect(obj1.attributes.variation_theme[0].name).toEqual('SIZE_NAME/COLOR_NAME')
   })
 
   it('跟卖产品', () => {

@@ -7,6 +7,8 @@ export class VariationTheme {
   }
 
   main() {
-    return renderListingArrValue(this.variation_theme)
+    return renderListingArrValue({
+      name: this.variation_theme,
+    })
   }
 }
