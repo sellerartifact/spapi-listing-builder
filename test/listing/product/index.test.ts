@@ -12,6 +12,9 @@ describe('should', () => {
       renderOtherAttributesFn: ({ renderListingArrValue, data }) => {
         return {
           list_price: renderListingArrValue(data.sell_price),
+          gpsr_manufacturer_reference: data.gpsr_manufacturer_email_address && renderListingArrValue({
+            gpsr_manufacturer_email_address: data.gpsr_manufacturer_email_address,
+          }),
         }
       },
     })
@@ -19,6 +22,7 @@ describe('should', () => {
     console.log(JSON.stringify(obj, null, 2))
     expect(obj.attributes.item_name[0].value).toEqual(listingData.title)
     expect(obj.attributes.list_price[0].value).toEqual(String(listingData.sell_price))
+    expect(obj.attributes.gpsr_manufacturer_reference).toEqual(undefined)
   })
 
   it('有变体的父产品', () => {

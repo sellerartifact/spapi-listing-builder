@@ -1,4 +1,3 @@
-import { filterUndefinedKeys } from '@/help'
 import { ListingImg } from '@/listing/img'
 import { ListingPrice } from '@/listing/price'
 import { ListingQuantity } from '@/listing/quantity'
@@ -17,7 +16,7 @@ export class ProductBaseInfo {
 
   main() {
     const data = this.data
-    return filterUndefinedKeys({
+    return {
       purchasable_offer: data.sell_price && new ListingPrice({ sell_price: data.sell_price }).genValue(),
       list_price: data.list_price && new ListPrice(data.list_price).main(),
       fulfillment_availability: data.quantity && new ListingQuantity({ quantity: data.quantity, deal_time: data.deal_time }).genValue(),
@@ -44,6 +43,6 @@ export class ProductBaseInfo {
       country_of_origin: new CountryOfOrigin(data.country_of_origin).main(),
       supplier_declared_has_product_identifier_exemption: new SupplierDeclaredHasProductIdentifierExemption(data.supplier_declared_has_product_identifier_exemption).main(),
       ...(data.imgs ? new ListingImg(data.imgs).genValuesMap() : []),
-    })
+    }
   }
 }

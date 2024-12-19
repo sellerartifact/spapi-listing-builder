@@ -74,7 +74,7 @@ export class ListingProduct {
     return {
       productType: data.product_type,
       requirements: 'LISTING',
-      attributes,
+      attributes: filterUndefinedKeys(attributes),
     }
   }
 
