@@ -21,7 +21,7 @@ export class ProductBaseInfo {
       list_price: data.list_price && new ListPrice(data.list_price).main(),
       fulfillment_availability: data.quantity && new ListingQuantity({ quantity: data.quantity, deal_time: data.deal_time }).genValue(),
       item_name: new ItemName(data.title).main(),
-      BatteriesRequired: new BatteriesRequired(data.is_electric).main(),
+      batteries_required: new BatteriesRequired(data.is_electric).main(),
       manufacturer: new Manufacturer(data.manufacturer).main(),
       item_weight: new ItemWeight(data.weight).main(),
       gift_options: new GiftOptions().main(),

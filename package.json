@@ -1,7 +1,7 @@
 {
   "name": "spapi-listing-builder",
   "type": "module",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "packageManager": "pnpm@9.9.0",
   "description": "It is a simple npm package for generating compliant Amazon SP-API listing JSON quickly and efficiently.",
   "author": "wangjue666 <wangjuesix@gmail.com>",
