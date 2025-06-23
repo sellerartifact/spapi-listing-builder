@@ -1,0 +1,3294 @@
+{
+  "item_name": {
+    "field": "item_name",
+    "label": "标题",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "提供可能面向顾客的产品标题",
+      "max": 200,
+      "min": 0
+    },
+    "required": true
+  },
+  "brand": {
+    "field": "brand",
+    "label": "品牌",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "提供产品品牌名",
+      "max": 100,
+      "min": 1
+    },
+    "required": true
+  },
+  "externally_assigned_product_identifier": {
+    "field": "externally_assigned_product_identifier",
+    "label": "外部产品 ID",
+    "component": "Select",
+    "componentProps": {
+      "placeholder": "选择用于识别此产品的外部 ID（条形码）类型",
+      "options": [
+        {
+          "label": "EAN",
+          "value": "ean"
+        },
+        {
+          "label": "GTIN",
+          "value": "gtin"
+        },
+        {
+          "label": "UPC",
+          "value": "upc"
+        }
+      ]
+    }
+  },
+  "merchant_suggested_asin": {
+    "field": "merchant_suggested_asin",
+    "label": "商家建议的 ASIN",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "为您的商品提供 ASIN（如果存在）。如果未提供数值，系统将尝试根据外部商品 ID 进行匹配。",
+      "max": 10,
+      "min": 10
+    }
+  },
+  "supplier_declared_has_product_identifier_exemption": {
+    "field": "supplier_declared_has_product_identifier_exemption",
+    "label": "從供應商聲明的外部標識符豁免。",
+    "component": "Switch",
+    "componentProps": {
+      "placeholder": "請指定產品是否免除供應商聲明的外部產品標識碼。",
+      "options": [
+        {
+          "label": "是",
+          "value": true
+        },
+        {
+          "label": "没有",
+          "value": false
+        }
+      ]
+    }
+  },
+  "recommended_browse_nodes": {
+    "field": "recommended_browse_nodes",
+    "label": "推荐分类节点",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "指明将分配产品的 Amazon 网站的浏览节点或分段。便于客户在网站上查找产品。如果您未提供节点或提供的节点不正确，客户可能无法找到您的产品。",
+      "max": 15
+    },
+    "required": true
+  },
+  "package_level": {
+    "field": "package_level",
+    "label": "包装级别",
+    "component": "Select",
+    "componentProps": {
+      "placeholder": "提供商品的包装等级。如果未提供包装等级或不适用，请选择“单位”。为每个包装等级提供一个“单位”商品。",
+      "options": [
+        {
+          "label": "Case",
+          "value": "case"
+        },
+        {
+          "label": "单元",
+          "value": "unit"
+        },
+        {
+          "label": "货盘",
+          "value": "pallet"
+        }
+      ]
+    }
+  },
+  "age_gender_category": {
+    "field": "age_gender_category",
+    "label": "年龄性别分类",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "说明陈列该产品的部门",
+      "max": 2398
+    }
+  },
+  "model_number": {
+    "field": "model_number",
+    "label": "型号",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "提供制造商定义的产品型号",
+      "max": 40,
+      "min": 0
+    }
+  },
+  "model_name": {
+    "field": "model_name",
+    "label": "型号名称",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "指定由制造商或品牌定义的产品型号名称，不包括产品类型、颜色、品牌或尺寸",
+      "max": 2499
+    }
+  },
+  "manufacturer": {
+    "field": "manufacturer",
+    "label": "制造商",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "指定产品的制造商",
+      "max": 100,
+      "min": 0
+    }
+  },
+  "skip_offer": {
+    "field": "skip_offer",
+    "label": "跳过报价",
+    "component": "Switch",
+    "componentProps": {
+      "placeholder": "指明是否应跳过该报价，是否不应创建可购买的报价。值为“是”表示不会创建任何报价。",
+      "options": [
+        {
+          "label": "是",
+          "value": true
+        },
+        {
+          "label": "没有",
+          "value": false
+        }
+      ]
+    }
+  },
+  "map_policy": {
+    "field": "map_policy",
+    "label": "最低广告价格显示",
+    "component": "Select",
+    "componentProps": {
+      "placeholder": "选择一个。",
+      "options": [
+        {
+          "label": "Policy 1",
+          "value": "policy_1"
+        },
+        {
+          "label": "Policy 10",
+          "value": "policy_10"
+        },
+        {
+          "label": "Policy 11",
+          "value": "policy_11"
+        },
+        {
+          "label": "Policy 2",
+          "value": "policy_2"
+        },
+        {
+          "label": "Policy 3",
+          "value": "policy_3"
+        },
+        {
+          "label": "Policy 4",
+          "value": "policy_4"
+        },
+        {
+          "label": "Policy 5",
+          "value": "policy_5"
+        },
+        {
+          "label": "Policy 6",
+          "value": "policy_6"
+        },
+        {
+          "label": "Policy 7",
+          "value": "policy_7"
+        },
+        {
+          "label": "Policy 8",
+          "value": "policy_8"
+        },
+        {
+          "label": "Policy 9",
+          "value": "policy_9"
+        }
+      ]
+    }
+  },
+  "condition_type": {
+    "field": "condition_type",
+    "label": "商品状况",
+    "component": "Select",
+    "componentProps": {
+      "placeholder": "提供产品的实际条件类型",
+      "options": [
+        {
+          "label": "二手 - 像新的一样",
+          "value": "used_like_new"
+        },
+        {
+          "label": "二手-可接受",
+          "value": "used_acceptable"
+        },
+        {
+          "label": "二手–好",
+          "value": "used_good"
+        },
+        {
+          "label": "二手–非常好",
+          "value": "used_very_good"
+        },
+        {
+          "label": "俱乐部",
+          "value": "club_club"
+        },
+        {
+          "label": "全新-OEM",
+          "value": "new_oem"
+        },
+        {
+          "label": "全新-开箱",
+          "value": "new_open_box"
+        },
+        {
+          "label": "收藏品-像新的一样",
+          "value": "collectible_like_new"
+        },
+        {
+          "label": "收藏品-可接受",
+          "value": "collectible_acceptable"
+        },
+        {
+          "label": "收藏品-好",
+          "value": "collectible_good"
+        },
+        {
+          "label": "收藏品-非常好",
+          "value": "collectible_very_good"
+        },
+        {
+          "label": "新",
+          "value": "new_new"
+        },
+        {
+          "label": "翻新的",
+          "value": "refurbished_refurbished"
+        }
+      ]
+    }
+  },
+  "condition_note": {
+    "field": "condition_note",
+    "label": "新旧程度说明",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "提供说明项目实际情况的描述性文字",
+      "max": 2204
+    }
+  },
+  "product_tax_code": {
+    "field": "product_tax_code",
+    "label": "产品税码",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "输入 Amazon.com 向您提供的产品税码",
+      "max": 949
+    }
+  },
+  "merchant_release_date": {
+    "field": "merchant_release_date",
+    "label": "发售日期",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "卖家可以在该输入项内为商品提前设定可出售日期（在此日期之前该商品可见，但无法被购买）。"
+    }
+  },
+  "merchant_shipping_group": {
+    "field": "merchant_shipping_group",
+    "label": "配送模板",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "出价的船舶配置组。卖方通过船舶设置 UI 创建和管理船舶配置组。",
+      "max": 100
+    }
+  },
+  "max_order_quantity": {
+    "field": "max_order_quantity",
+    "label": "单笔订单最大数量",
+    "component": "InputNumber",
+    "componentProps": {
+      "placeholder": "整数。",
+      "min": 1
+    }
+  },
+  "main_offer_image_locator_media_location": {
+    "field": "main_offer_image_locator_media_location",
+    "label": "主商品图片定位器",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "产品的交付主图所在的链接地址"
+    }
+  },
+  "other_offer_image_locator_1_media_location": {
+    "field": "other_offer_image_locator_1_media_location",
+    "label": "其他商品图片定位器",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "其他产品图片的链接地址。当客户点击查看与产品相关的其他视图时，这些图片将显示在详细信息页面上。"
+    }
+  },
+  "other_offer_image_locator_2_media_location": {
+    "field": "other_offer_image_locator_2_media_location",
+    "label": "其他商品图片定位器",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "其他产品图片的链接地址。当客户点击查看与产品相关的其他视图时，这些图片将显示在详细信息页面上。"
+    }
+  },
+  "other_offer_image_locator_3_media_location": {
+    "field": "other_offer_image_locator_3_media_location",
+    "label": "其他商品图片定位器",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "其他产品图片的链接地址。当客户点击查看与产品相关的其他视图时，这些图片将显示在详细信息页面上。"
+    }
+  },
+  "other_offer_image_locator_4_media_location": {
+    "field": "other_offer_image_locator_4_media_location",
+    "label": "其他商品图片定位器",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "其他产品图片的链接地址。当客户点击查看与产品相关的其他视图时，这些图片将显示在详细信息页面上。"
+    }
+  },
+  "other_offer_image_locator_5_media_location": {
+    "field": "other_offer_image_locator_5_media_location",
+    "label": "其他商品图片定位器",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "其他产品图片的链接地址。当客户点击查看与产品相关的其他视图时，这些图片将显示在详细信息页面上。"
+    }
+  },
+  "optional_payment_type_exclusion": {
+    "field": "optional_payment_type_exclusion",
+    "label": "付款方式排除",
+    "component": "Select",
+    "componentProps": {
+      "placeholder": "额外请求产品的可选支付类型例外",
+      "options": [
+        {
+          "label": "不包括便利店付款",
+          "value": "cvs"
+        },
+        {
+          "label": "不包括货到付款",
+          "value": "cash_on_delivery"
+        }
+      ]
+    }
+  },
+  "handmade_classification": {
+    "field": "handmade_classification",
+    "label": "手工制作分类",
+    "component": "Select",
+    "componentProps": {
+      "placeholder": "选择最能描述产品生产方式的值",
+      "options": [
+        {
+          "label": "升级再造",
+          "value": "upcycled"
+        },
+        {
+          "label": "手工制作",
+          "value": "handcrafted"
+        },
+        {
+          "label": "手工改造",
+          "value": "hand_altered"
+        },
+        {
+          "label": "手工设计",
+          "value": "hand_designed"
+        },
+        {
+          "label": "重新利用",
+          "value": "repurposed"
+        }
+      ]
+    }
+  },
+  "product_description": {
+    "field": "product_description",
+    "label": "描述",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "提供产品的文本说明。该信息将以段落形式显示在产品的详细信息页面上。包括产品的特点、产品系列详情和产品规格。请不要全部大写。"
+    },
+    "required": true
+  },
+  "bullet_point": {
+    "field": "bullet_point",
+    "label": "商品特性",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "产品特定方面的简要描述文本以项目符号表示。这些符号显示在产品照片的正下方或旁边，在这些字段中放置具有吸引力的信息会很有帮助。不可使用全大写或缩写。因产品销售地域不同，请不要罗列出面料信息、保养说明或国家。",
+      "max": 500,
+      "min": 0
+    },
+    "required": true
+  },
+  "generic_keyword": {
+    "field": "generic_keyword",
+    "label": "搜索关键词",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "提供可能与客户搜索相关的任何术语没有重复、没有竞争对手的品牌名称或 ASIN。",
+      "max": 500,
+      "min": 0
+    }
+  },
+  "style": {
+    "field": "style",
+    "label": "产品款式",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "提供产品的样式。样式是指一个人或一群人的审美选择。它描述产品的独特视觉表现",
+      "max": 2200
+    }
+  },
+  "age_range_description": {
+    "field": "age_range_description",
+    "label": "年龄范围说明",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "指定商品适用的年龄范围说明",
+      "max": 1998
+    }
+  },
+  "material": {
+    "field": "material",
+    "label": "材质类型",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "指定用来制造产品的主要材料"
+    }
+  },
+  "number_of_items": {
+    "field": "number_of_items",
+    "label": "包装内数量",
+    "component": "InputNumber",
+    "componentProps": {
+      "placeholder": "向客户提供单位销售中相同产品的总数",
+      "max": 999999999999,
+      "min": 0
+    }
+  },
+  "item_package_quantity": {
+    "field": "item_package_quantity",
+    "label": "包裹中的商品数量",
+    "component": "InputNumber",
+    "componentProps": {
+      "placeholder": "提供单一产品的成套销售数量。ASIN 销售 5 盒回形针，每盒包含 100 个回形针，则此产品成套数量 =“5”",
+      "min": 1
+    }
+  },
+  "deprecated_shaft_style_type": {
+    "field": "deprecated_shaft_style_type",
+    "label": "轴样式类型",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "进攻队员球杆、防守队员球杆、守门员球杆、中场队员球杆",
+      "max": 2200
+    }
+  },
+  "color": {
+    "field": "color",
+    "label": "颜色",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "提供产品颜色",
+      "max": 1000,
+      "min": 0
+    }
+  },
+  "size": {
+    "field": "size",
+    "label": "尺寸",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "提供产品尺码",
+      "max": 50
+    }
+  },
+  "item_length_description": {
+    "field": "item_length_description",
+    "label": "商品长度说明",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "提供商品长度的文字描述。长度通常是指商品的较长或垂直尺寸。",
+      "max": 2525
+    }
+  },
+  "metal_type": {
+    "field": "metal_type",
+    "label": "金属种类",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "提供商品的金属类型。",
+      "max": 540
+    }
+  },
+  "part_number": {
+    "field": "part_number",
+    "label": "制造商零件编号",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "提供零件编号。在许多产品中，此编号与型号相同，但有些制造商会将零件编号与型号区分表示",
+      "max": 40,
+      "min": 0
+    }
+  },
+  "item_shape": {
+    "field": "item_shape",
+    "label": "商品形状",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "指定商品形状"
+    }
+  },
+  "theme": {
+    "field": "theme",
+    "label": "主题",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "说明商品的主要高级题材、概念、主题、装饰图案或创意。",
+      "max": 1553
+    }
+  },
+  "distribution_designation": {
+    "field": "distribution_designation",
+    "label": "Distribution Designation",
+    "component": "Select",
+    "componentProps": {
+      "placeholder": "说明产品是否是从非授权分销渠道（例如）平行进口的。",
+      "options": [
+        {
+          "label": "Default",
+          "value": "default"
+        },
+        {
+          "label": "JP Parallel Import",
+          "value": "jp_parallel_import"
+        }
+      ]
+    }
+  },
+  "collection_description": {
+    "field": "collection_description",
+    "label": "收藏说明",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "收藏说明",
+      "max": 110
+    }
+  },
+  "codabar": {
+    "field": "codabar",
+    "label": "库德巴码",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "该属性表示产品的 Codabar",
+      "max": 159
+    }
+  },
+  "edition": {
+    "field": "edition",
+    "label": "版本",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "提供商品的版本或版次",
+      "max": 4582
+    }
+  },
+  "is_exclusive_product": {
+    "field": "is_exclusive_product",
+    "label": "是独家产品",
+    "component": "Switch",
+    "componentProps": {
+      "placeholder": "指定是否仅在亚马逊上提供该产品",
+      "options": [
+        {
+          "label": "是",
+          "value": true
+        },
+        {
+          "label": "没有",
+          "value": false
+        }
+      ]
+    }
+  },
+  "configuration": {
+    "field": "configuration",
+    "label": "配置",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "显示商品配置",
+      "max": 3261
+    }
+  },
+  "design_name": {
+    "field": "design_name",
+    "label": "设计名称",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "选择最能描述产品设计的值",
+      "max": 473
+    }
+  },
+  "support_type": {
+    "field": "support_type",
+    "label": "支持类型",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "该属性表示产品的支持类型",
+      "max": 2555
+    }
+  },
+  "number_of_hooks": {
+    "field": "number_of_hooks",
+    "label": "挂钩数",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "给出商品具有的挂钩数",
+      "max": 2116
+    }
+  },
+  "occasion": {
+    "field": "occasion",
+    "label": "适于场合",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "场合",
+      "min": 1
+    }
+  },
+  "flavor": {
+    "field": "flavor",
+    "label": "口味",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "指定产品的口味",
+      "max": 2200
+    }
+  },
+  "operating_system": {
+    "field": "operating_system",
+    "label": "操作系统",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "指定产品的操作系统",
+      "max": 200
+    }
+  },
+  "customer_package_type": {
+    "field": "customer_package_type",
+    "label": "包装类型",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "提供产品的包装类型",
+      "max": 2176
+    }
+  },
+  "pattern": {
+    "field": "pattern",
+    "label": "图案",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "说明商品最醒目的重复装饰设计",
+      "max": 2200
+    }
+  },
+  "item_form": {
+    "field": "item_form",
+    "label": "商品质地",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "请简要说明该商品的质地。",
+      "max": 1100
+    }
+  },
+  "product_site_launch_date": {
+    "field": "product_site_launch_date",
+    "label": "发布日期",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "提供产品发布的日期，应首先显示在亚马逊网站上（YYYY-MM-DD 格式）。PSLD（产品网站发布日期）不会影响购买性或预订逻辑性，它用于表示产品何时在亚马逊网站上可见和可搜索"
+    }
+  },
+  "league_name": {
+    "field": "league_name",
+    "label": "联赛名称",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "给出与产品相关的联赛名称",
+      "max": 100
+    }
+  },
+  "team_name": {
+    "field": "team_name",
+    "label": "球队名称",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "请输入产品的球队名称",
+      "max": 100
+    }
+  },
+  "scent": {
+    "field": "scent",
+    "label": "香味",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "给定商品的气味说明",
+      "max": 2200
+    }
+  },
+  "hand_orientation": {
+    "field": "hand_orientation",
+    "label": "握杆方式",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "提供产品支持的用手习惯，左、右或均可",
+      "max": 2200
+    }
+  },
+  "length_range": {
+    "field": "length_range",
+    "label": "长度范围",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "百叶窗的长度范围"
+    }
+  },
+  "limited_edition_range": {
+    "field": "limited_edition_range",
+    "label": "限量版系列",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "整个版本范围。"
+    }
+  },
+  "matte_style": {
+    "field": "matte_style",
+    "label": "亚光风格",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "产品上的磨砂类型，通常是家具。",
+      "max": 1073
+    }
+  },
+  "width_range": {
+    "field": "width_range",
+    "label": "宽度范围",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "百叶窗的宽度范围"
+    }
+  },
+  "number_of_compartments": {
+    "field": "number_of_compartments",
+    "label": "隔室数量",
+    "component": "InputNumber",
+    "componentProps": {
+      "placeholder": "提供商品所含隔室的数量",
+      "max": 66000
+    }
+  },
+  "interior_color": {
+    "field": "interior_color",
+    "label": "内部颜色",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "该属性表示产品的内部颜色",
+      "max": 100
+    }
+  },
+  "parentage_level": {
+    "field": "parentage_level",
+    "label": "父条目的等级",
+    "component": "Select",
+    "componentProps": {
+      "placeholder": "注明该库存单位是指父条目还是子条目",
+      "options": [
+        {
+          "label": "儿童",
+          "value": "child"
+        },
+        {
+          "label": "父条目",
+          "value": "parent"
+        }
+      ]
+    }
+  },
+  "variation_theme_name": {
+    "field": "variation_theme_name",
+    "label": "变体主题",
+    "component": "Select",
+    "componentProps": {
+      "placeholder": "指定产品将使用的变体主题。主题属性必须应用于分组中的所有商品。",
+      "options": [
+        {
+          "label": "AGE_GENDER_CATEGORY/HAND_ORIENTATION/SHAFT_MATERIAL_TYPE",
+          "value": "AGE_GENDER_CATEGORY/HAND_ORIENTATION/SHAFT_MATERIAL_TYPE"
+        },
+        {
+          "label": "AGE_RANGE_DESCRIPTION",
+          "value": "AGE_RANGE_DESCRIPTION"
+        },
+        {
+          "label": "COLOR_NAME/SIZE_NAME/STYLE_NAME/CONFIGURATION",
+          "value": "COLOR_NAME/SIZE_NAME/STYLE_NAME/CONFIGURATION"
+        },
+        {
+          "label": "MODEL_NAME/COLOR_NAME/CONFIGURATION",
+          "value": "MODEL_NAME/COLOR_NAME/CONFIGURATION"
+        },
+        {
+          "label": "MODEL_NAME/TEAM_NAME",
+          "value": "MODEL_NAME/TEAM_NAME"
+        },
+        {
+          "label": "SCENT_NAME/SIZE_NAME/NUMBER_OF_ITEMS",
+          "value": "SCENT_NAME/SIZE_NAME/NUMBER_OF_ITEMS"
+        },
+        {
+          "label": "SIZE/NUMBER_OF_ITEMS",
+          "value": "SIZE/NUMBER_OF_ITEMS"
+        },
+        {
+          "label": "STYLE_NAME/CONFIGURATION/COLOR_NAME/INTERIOR_COLOR_NAME",
+          "value": "STYLE_NAME/CONFIGURATION/COLOR_NAME/INTERIOR_COLOR_NAME"
+        },
+        {
+          "label": "STYLE_NAME/UNIT_COUNT",
+          "value": "STYLE_NAME/UNIT_COUNT"
+        },
+        {
+          "label": "THEME",
+          "value": "THEME"
+        },
+        {
+          "label": "功率",
+          "value": "WATTAGE"
+        },
+        {
+          "label": "单位_计数",
+          "value": "UNIT_COUNT"
+        },
+        {
+          "label": "商品_包装_数量/尺寸",
+          "value": "ITEM_PACKAGE_QUANTITY/SIZE"
+        },
+        {
+          "label": "商品_包装_数量/颜色",
+          "value": "ITEM_PACKAGE_QUANTITY/COLOR"
+        },
+        {
+          "label": "商品_形状/尺寸",
+          "value": "ITEM_SHAPE/SIZE"
+        },
+        {
+          "label": "团队_名称",
+          "value": "TEAM_NAME"
+        },
+        {
+          "label": "团队_名称/规格_名称",
+          "value": "TEAM_NAME/SIZE_NAME"
+        },
+        {
+          "label": "团队_名称/规格_名称/颜色_名称",
+          "value": "TEAM_NAME/SIZE_NAME/COLOR_NAME"
+        },
+        {
+          "label": "图案",
+          "value": "PATTERN"
+        },
+        {
+          "label": "图案_名称",
+          "value": "PATTERN_NAME"
+        },
+        {
+          "label": "图案_名称/款式_名称",
+          "value": "PATTERN_NAME/STYLE_NAME"
+        },
+        {
+          "label": "图案_名称/款式_名称/颜色_名称",
+          "value": "PATTERN_NAME/STYLE_NAME/COLOR_NAME"
+        },
+        {
+          "label": "图案_名称/规格_名称",
+          "value": "PATTERN_NAME/SIZE_NAME"
+        },
+        {
+          "label": "图案_名称/颜色_名称",
+          "value": "PATTERN_NAME/COLOR_NAME"
+        },
+        {
+          "label": "场合",
+          "value": "OCCASION"
+        },
+        {
+          "label": "场合/款式_名称",
+          "value": "OCCASION/STYLE_NAME"
+        },
+        {
+          "label": "型号",
+          "value": "MODEL"
+        },
+        {
+          "label": "型号/款式_名称/规格_名称/容量/物品_数量/零件_编号",
+          "value": "MODEL/STYLE_NAME/SIZE_NAME/CAPACITY/NUMBER_OF_ITEMS/PART_NUMBER"
+        },
+        {
+          "label": "型号/规格_名称",
+          "value": "MODEL/SIZE_NAME"
+        },
+        {
+          "label": "型号/颜色_名称",
+          "value": "MODEL/COLOR_NAME"
+        },
+        {
+          "label": "型号_名称",
+          "value": "MODEL_NAME"
+        },
+        {
+          "label": "型号_编号/尺寸",
+          "value": "MODEL_NUMBER/SIZE"
+        },
+        {
+          "label": "大小/风格",
+          "value": "SIZE/STYLE"
+        },
+        {
+          "label": "客户_包装_类型",
+          "value": "CUSTOMER_PACKAGE_TYPE"
+        },
+        {
+          "label": "容量/物品_形状/物品_数量/零件_编号",
+          "value": "CAPACITY/ITEM_SHAPE/NUMBER_OF_ITEMS/PART_NUMBER"
+        },
+        {
+          "label": "宽度_范围",
+          "value": "WIDTH_RANGE"
+        },
+        {
+          "label": "宽度_范围/长度_范围",
+          "value": "WIDTH_RANGE/LENGTH_RANGE"
+        },
+        {
+          "label": "尺寸/单位_计数",
+          "value": "SIZE/UNIT_COUNT"
+        },
+        {
+          "label": "尺寸/材料",
+          "value": "SIZE/MATERIAL"
+        },
+        {
+          "label": "带子_材料_类型",
+          "value": "BAND_MATERIAL_TYPE"
+        },
+        {
+          "label": "把手_方向/规格_名称/款式_名称/杆_款式_类型",
+          "value": "HAND_ORIENTATION/SIZE_NAME/STYLE_NAME/SHAFT_STYLE_TYPE"
+        },
+        {
+          "label": "握柄_类型",
+          "value": "GRIP_TYPE"
+        },
+        {
+          "label": "有限_版次_范围/框架_材料_类型",
+          "value": "LIMITED_EDITION_RANGE/FRAME_MATERIAL_TYPE"
+        },
+        {
+          "label": "服务_计划_团队/服务_计划_涵盖_值",
+          "value": "SERVICE_PLAN_TERM/SERVICE_PLAN_COVERED_VALUE"
+        },
+        {
+          "label": "材料/尺寸",
+          "value": "MATERIAL/SIZE"
+        },
+        {
+          "label": "材料_类型",
+          "value": "MATERIAL_TYPE"
+        },
+        {
+          "label": "材料_类型/款式_名称",
+          "value": "MATERIAL_TYPE/STYLE_NAME"
+        },
+        {
+          "label": "材料_类型/气味_名称",
+          "value": "MATERIAL_TYPE/SCENT_NAME"
+        },
+        {
+          "label": "材料_类型/规格_名称",
+          "value": "MATERIAL_TYPE/SIZE_NAME"
+        },
+        {
+          "label": "材料_类型/颜色_名称",
+          "value": "MATERIAL_TYPE/COLOR_NAME"
+        },
+        {
+          "label": "杯子_规格/颜色_名称/规格_名称",
+          "value": "CUP_SIZE/COLOR_NAME/SIZE_NAME"
+        },
+        {
+          "label": "样式/图案",
+          "value": "STYLE/PATTERN"
+        },
+        {
+          "label": "样式/尺寸",
+          "value": "STYLE/SIZE"
+        },
+        {
+          "label": "款式_名称",
+          "value": "STYLE_NAME"
+        },
+        {
+          "label": "款式_名称/图案_名称",
+          "value": "STYLE_NAME/PATTERN_NAME"
+        },
+        {
+          "label": "款式_名称/图案_名称/规格_名称",
+          "value": "STYLE_NAME/PATTERN_NAME/SIZE_NAME"
+        },
+        {
+          "label": "款式_名称/图案_名称/配置",
+          "value": "STYLE_NAME/PATTERN_NAME/CONFIGURATION"
+        },
+        {
+          "label": "款式_名称/图案_名称/颜色_名称",
+          "value": "STYLE_NAME/PATTERN_NAME/COLOR_NAME"
+        },
+        {
+          "label": "款式_名称/客户_包装_类型",
+          "value": "STYLE_NAME/CUSTOMER_PACKAGE_TYPE"
+        },
+        {
+          "label": "款式_名称/材料_类型",
+          "value": "STYLE_NAME/MATERIAL_TYPE"
+        },
+        {
+          "label": "款式_名称/物品_长度/物品_宽度/颜色_名称",
+          "value": "STYLE_NAME/ITEM_LENGTH/ITEM_WIDTH/COLOR_NAME"
+        },
+        {
+          "label": "款式_名称/规格_名称",
+          "value": "STYLE_NAME/SIZE_NAME"
+        },
+        {
+          "label": "款式_名称/规格_名称/配置",
+          "value": "STYLE_NAME/SIZE_NAME/CONFIGURATION"
+        },
+        {
+          "label": "款式_名称/规格_名称/颜色_名称",
+          "value": "STYLE_NAME/SIZE_NAME/COLOR_NAME"
+        },
+        {
+          "label": "款式_名称/规格_名称/颜色_名称/配置",
+          "value": "STYLE_NAME/SIZE_NAME/COLOR_NAME/CONFIGURATION"
+        },
+        {
+          "label": "款式_名称/配置",
+          "value": "STYLE_NAME/CONFIGURATION"
+        },
+        {
+          "label": "款式_名称/颜色_名称",
+          "value": "STYLE_NAME/COLOR_NAME"
+        },
+        {
+          "label": "款式_名称/颜色_名称/规格_名称",
+          "value": "STYLE_NAME/COLOR_NAME/SIZE_NAME"
+        },
+        {
+          "label": "款式_名称/颜色_名称/配置",
+          "value": "STYLE_NAME/COLOR_NAME/CONFIGURATION"
+        },
+        {
+          "label": "气味_名称",
+          "value": "SCENT_NAME"
+        },
+        {
+          "label": "版次",
+          "value": "EDITION"
+        },
+        {
+          "label": "物品_包装_数量",
+          "value": "ITEM_PACKAGE_QUANTITY"
+        },
+        {
+          "label": "物品_包装_数量/材料_类型",
+          "value": "ITEM_PACKAGE_QUANTITY/MATERIAL_TYPE"
+        },
+        {
+          "label": "物品_包装_数量/款式_名称",
+          "value": "ITEM_PACKAGE_QUANTITY/STYLE_NAME"
+        },
+        {
+          "label": "物品_包装_数量/物品_展示_高度",
+          "value": "ITEM_PACKAGE_QUANTITY/ITEM_DISPLAY_HEIGHT"
+        },
+        {
+          "label": "物品_包装_数量/规格_名称",
+          "value": "ITEM_PACKAGE_QUANTITY/SIZE_NAME"
+        },
+        {
+          "label": "物品_包装_数量/颜色_名称",
+          "value": "ITEM_PACKAGE_QUANTITY/COLOR_NAME"
+        },
+        {
+          "label": "物品_展示_宽度/物品_展示_高度",
+          "value": "ITEM_DISPLAY_WIDTH/ITEM_DISPLAY_HEIGHT"
+        },
+        {
+          "label": "物品_展示_宽度/规格_名称",
+          "value": "ITEM_DISPLAY_WIDTH/SIZE_NAME"
+        },
+        {
+          "label": "物品_展示_直径",
+          "value": "ITEM_DISPLAY_DIAMETER"
+        },
+        {
+          "label": "物品_展示_重量",
+          "value": "ITEM_DISPLAY_WEIGHT"
+        },
+        {
+          "label": "物品_展示_重量/物品_包装_数量",
+          "value": "ITEM_DISPLAY_WEIGHT/ITEM_PACKAGE_QUANTITY"
+        },
+        {
+          "label": "物品_展示_重量/规格_名称",
+          "value": "ITEM_DISPLAY_WEIGHT/SIZE_NAME"
+        },
+        {
+          "label": "物品_展示_长度",
+          "value": "ITEM_DISPLAY_LENGTH"
+        },
+        {
+          "label": "物品_展示_长度/物品_展示_宽度",
+          "value": "ITEM_DISPLAY_LENGTH/ITEM_DISPLAY_WIDTH"
+        },
+        {
+          "label": "物品_展示_长度/规格_名称",
+          "value": "ITEM_DISPLAY_LENGTH/SIZE_NAME"
+        },
+        {
+          "label": "物品_展示_长度/金属_类型",
+          "value": "ITEM_DISPLAY_LENGTH/METAL_TYPE"
+        },
+        {
+          "label": "物品_展示_高度",
+          "value": "ITEM_DISPLAY_HEIGHT"
+        },
+        {
+          "label": "物品_形态",
+          "value": "ITEM_FORM"
+        },
+        {
+          "label": "物品_形状",
+          "value": "ITEM_SHAPE"
+        },
+        {
+          "label": "物品_形状/规格_名称",
+          "value": "ITEM_SHAPE/SIZE_NAME"
+        },
+        {
+          "label": "物品_形状/颜色_名称",
+          "value": "ITEM_SHAPE/COLOR_NAME"
+        },
+        {
+          "label": "物品_数量",
+          "value": "NUMBER_OF_ITEMS"
+        },
+        {
+          "label": "物品_数量/款式_名称",
+          "value": "NUMBER_OF_ITEMS/STYLE_NAME"
+        },
+        {
+          "label": "物品_数量/颜色_名称/规格_名称",
+          "value": "NUMBER_OF_ITEMS/COLOR_NAME/SIZE_NAME"
+        },
+        {
+          "label": "物品_重量",
+          "value": "ITEM_WEIGHT"
+        },
+        {
+          "label": "电压",
+          "value": "VOLTAGE"
+        },
+        {
+          "label": "电压/规格_名称",
+          "value": "VOLTAGE/SIZE_NAME"
+        },
+        {
+          "label": "纸张_大小",
+          "value": "PAPER_SIZE"
+        },
+        {
+          "label": "线_规格",
+          "value": "LINE_SIZE"
+        },
+        {
+          "label": "规格",
+          "value": "SIZE"
+        },
+        {
+          "label": "规格/颜色",
+          "value": "SIZE/COLOR"
+        },
+        {
+          "label": "规格_名称",
+          "value": "SIZE_NAME"
+        },
+        {
+          "label": "规格_名称/单位_计数",
+          "value": "SIZE_NAME/UNIT_COUNT"
+        },
+        {
+          "label": "规格_名称/图案_名称",
+          "value": "SIZE_NAME/PATTERN_NAME"
+        },
+        {
+          "label": "规格_名称/客户_包装_类型",
+          "value": "SIZE_NAME/CUSTOMER_PACKAGE_TYPE"
+        },
+        {
+          "label": "规格_名称/把手_方向",
+          "value": "SIZE_NAME/HAND_ORIENTATION"
+        },
+        {
+          "label": "规格_名称/材料_类型",
+          "value": "SIZE_NAME/MATERIAL_TYPE"
+        },
+        {
+          "label": "规格_名称/款式_名称",
+          "value": "SIZE_NAME/STYLE_NAME"
+        },
+        {
+          "label": "规格_名称/款式_名称/图案_名称",
+          "value": "SIZE_NAME/STYLE_NAME/PATTERN_NAME"
+        },
+        {
+          "label": "规格_名称/款式_名称/客户_包装_类型",
+          "value": "SIZE_NAME/STYLE_NAME/CUSTOMER_PACKAGE_TYPE"
+        },
+        {
+          "label": "规格_名称/款式_名称/配置",
+          "value": "SIZE_NAME/STYLE_NAME/CONFIGURATION"
+        },
+        {
+          "label": "规格_名称/款式_名称/颜色_名称",
+          "value": "SIZE_NAME/STYLE_NAME/COLOR_NAME"
+        },
+        {
+          "label": "规格_名称/气味_名称",
+          "value": "SIZE_NAME/SCENT_NAME"
+        },
+        {
+          "label": "规格_名称/物品_展示_宽度",
+          "value": "SIZE_NAME/ITEM_DISPLAY_WIDTH"
+        },
+        {
+          "label": "规格_名称/物品_展示_重量",
+          "value": "SIZE_NAME/ITEM_DISPLAY_WEIGHT"
+        },
+        {
+          "label": "规格_名称/物品_展示_长度",
+          "value": "SIZE_NAME/ITEM_DISPLAY_LENGTH"
+        },
+        {
+          "label": "规格_名称/物品_展示_高度",
+          "value": "SIZE_NAME/ITEM_DISPLAY_HEIGHT"
+        },
+        {
+          "label": "规格_名称/物品_形状",
+          "value": "SIZE_NAME/ITEM_SHAPE"
+        },
+        {
+          "label": "规格_名称/物品_形状/颜色_名称",
+          "value": "SIZE_NAME/ITEM_SHAPE/COLOR_NAME"
+        },
+        {
+          "label": "规格_名称/物品_数量",
+          "value": "SIZE_NAME/NUMBER_OF_ITEMS"
+        },
+        {
+          "label": "规格_名称/系列_描述/款式_名称/腰围_款式/物品_长度_描述",
+          "value": "SIZE_NAME/COLLECTION_DESCRIPTION/STYLE_NAME/WAIST_STYLE/ITEM_LENGTH_DESCRIPTION"
+        },
+        {
+          "label": "规格_名称/颜色_名称",
+          "value": "SIZE_NAME/COLOR_NAME"
+        },
+        {
+          "label": "规格_名称/颜色_名称/图案_名称",
+          "value": "SIZE_NAME/COLOR_NAME/PATTERN_NAME"
+        },
+        {
+          "label": "规格_名称/颜色_名称/客户_包装_类型",
+          "value": "SIZE_NAME/COLOR_NAME/CUSTOMER_PACKAGE_TYPE"
+        },
+        {
+          "label": "规格_名称/颜色_名称/物品_数量",
+          "value": "SIZE_NAME/COLOR_NAME/NUMBER_OF_ITEMS"
+        },
+        {
+          "label": "设计_名称",
+          "value": "DESIGN_NAME"
+        },
+        {
+          "label": "遮片_款式",
+          "value": "MATTE_STYLE"
+        },
+        {
+          "label": "配置",
+          "value": "CONFIGURATION"
+        },
+        {
+          "label": "配置/款式_名称",
+          "value": "CONFIGURATION/STYLE_NAME"
+        },
+        {
+          "label": "金属_类型",
+          "value": "METAL_TYPE"
+        },
+        {
+          "label": "长度_范围",
+          "value": "LENGTH_RANGE"
+        },
+        {
+          "label": "频带_规格/杯子_规格/支持_类型/款式_名称/闭合_类型",
+          "value": "BAND_SIZE/CUP_SIZE/SUPPORT_TYPE/STYLE_NAME/CLOSURE_TYPE"
+        },
+        {
+          "label": "频带_颜色",
+          "value": "BAND_COLOR"
+        },
+        {
+          "label": "颜色",
+          "value": "COLOR"
+        },
+        {
+          "label": "颜色/商品_包装_数量",
+          "value": "COLOR/ITEM_PACKAGE_QUANTITY"
+        },
+        {
+          "label": "颜色/图案",
+          "value": "COLOR/PATTERN"
+        },
+        {
+          "label": "颜色/尺寸",
+          "value": "COLOR/SIZE"
+        },
+        {
+          "label": "颜色/材料",
+          "value": "COLOR/MATERIAL"
+        },
+        {
+          "label": "颜色/风格",
+          "value": "COLOR/STYLE"
+        },
+        {
+          "label": "颜色_名称",
+          "value": "COLOR_NAME"
+        },
+        {
+          "label": "颜色_名称/图案_名称",
+          "value": "COLOR_NAME/PATTERN_NAME"
+        },
+        {
+          "label": "颜色_名称/客户_包装_类型",
+          "value": "COLOR_NAME/CUSTOMER_PACKAGE_TYPE"
+        },
+        {
+          "label": "颜色_名称/容量",
+          "value": "COLOR_NAME/CAPACITY"
+        },
+        {
+          "label": "颜色_名称/尺寸_名称/款式_名称/图案_名称",
+          "value": "COLOR_NAME/SIZE_NAME/STYLE_NAME/PATTERN_NAME"
+        },
+        {
+          "label": "颜色_名称/戒指_尺寸",
+          "value": "COLOR_NAME/RING_SIZE"
+        },
+        {
+          "label": "颜色_名称/操作_系统",
+          "value": "COLOR_NAME/OPERATING_SYSTEM"
+        },
+        {
+          "label": "颜色_名称/材料_类型",
+          "value": "COLOR_NAME/MATERIAL_TYPE"
+        },
+        {
+          "label": "颜色_名称/款式_名称",
+          "value": "COLOR_NAME/STYLE_NAME"
+        },
+        {
+          "label": "颜色_名称/款式_名称/图案_名称",
+          "value": "COLOR_NAME/STYLE_NAME/PATTERN_NAME"
+        },
+        {
+          "label": "颜色_名称/款式_名称/配置",
+          "value": "COLOR_NAME/STYLE_NAME/CONFIGURATION"
+        },
+        {
+          "label": "颜色_名称/物品_包装_数量",
+          "value": "COLOR_NAME/ITEM_PACKAGE_QUANTITY"
+        },
+        {
+          "label": "颜色_名称/物品_展示_宽度",
+          "value": "COLOR_NAME/ITEM_DISPLAY_WIDTH"
+        },
+        {
+          "label": "颜色_名称/物品_展示_重量",
+          "value": "COLOR_NAME/ITEM_DISPLAY_WEIGHT"
+        },
+        {
+          "label": "颜色_名称/物品_展示_长度",
+          "value": "COLOR_NAME/ITEM_DISPLAY_LENGTH"
+        },
+        {
+          "label": "颜色_名称/物品_展示_高度",
+          "value": "COLOR_NAME/ITEM_DISPLAY_HEIGHT"
+        },
+        {
+          "label": "颜色_名称/物品_形状",
+          "value": "COLOR_NAME/ITEM_SHAPE"
+        },
+        {
+          "label": "颜色_名称/物品_数量",
+          "value": "COLOR_NAME/NUMBER_OF_ITEMS"
+        },
+        {
+          "label": "颜色_名称/规格_名称",
+          "value": "COLOR_NAME/SIZE_NAME"
+        },
+        {
+          "label": "颜色_名称/规格_名称/图案_名称",
+          "value": "COLOR_NAME/SIZE_NAME/PATTERN_NAME"
+        },
+        {
+          "label": "颜色_名称/规格_名称/款式_名称",
+          "value": "COLOR_NAME/SIZE_NAME/STYLE_NAME"
+        },
+        {
+          "label": "颜色_名称/规格_名称/配置",
+          "value": "COLOR_NAME/SIZE_NAME/CONFIGURATION"
+        },
+        {
+          "label": "颜色_名称/配置",
+          "value": "COLOR_NAME/CONFIGURATION"
+        },
+        {
+          "label": "风味/规格",
+          "value": "FLAVOR/SIZE"
+        },
+        {
+          "label": "风味_名称",
+          "value": "FLAVOR_NAME"
+        },
+        {
+          "label": "风味_名称/规格_名称",
+          "value": "FLAVOR_NAME/SIZE_NAME"
+        }
+      ]
+    }
+  },
+  "country_of_origin": {
+    "field": "country_of_origin",
+    "label": "原产国",
+    "component": "Select",
+    "componentProps": {
+      "placeholder": "选择产品的原产国",
+      "options": [
+        {
+          "label": "GB",
+          "value": "GB"
+        },
+        {
+          "label": "Timor-Leste",
+          "value": "TL"
+        },
+        {
+          "label": "WD",
+          "value": "WD"
+        },
+        {
+          "label": "WZ",
+          "value": "WZ"
+        },
+        {
+          "label": "XK",
+          "value": "XK"
+        },
+        {
+          "label": "XM",
+          "value": "XM"
+        },
+        {
+          "label": "不丹",
+          "value": "BT"
+        },
+        {
+          "label": "不列颠岛(美)",
+          "value": "VI"
+        },
+        {
+          "label": "不列颠岛(英)",
+          "value": "VG"
+        },
+        {
+          "label": "东帝汶",
+          "value": "TP"
+        },
+        {
+          "label": "中国",
+          "value": "CN"
+        },
+        {
+          "label": "中非共和国",
+          "value": "CF"
+        },
+        {
+          "label": "丹麦",
+          "value": "DK"
+        },
+        {
+          "label": "乌克兰",
+          "value": "UA"
+        },
+        {
+          "label": "乌兹别克斯坦",
+          "value": "UZ"
+        },
+        {
+          "label": "乌干达",
+          "value": "UG"
+        },
+        {
+          "label": "乌拉圭",
+          "value": "UY"
+        },
+        {
+          "label": "乍得",
+          "value": "TD"
+        },
+        {
+          "label": "也门",
+          "value": "YE"
+        },
+        {
+          "label": "亚美尼亚",
+          "value": "AM"
+        },
+        {
+          "label": "以色列",
+          "value": "IL"
+        },
+        {
+          "label": "伊拉克",
+          "value": "IQ"
+        },
+        {
+          "label": "伊朗",
+          "value": "IR"
+        },
+        {
+          "label": "伯利兹",
+          "value": "BZ"
+        },
+        {
+          "label": "佛得角",
+          "value": "CV"
+        },
+        {
+          "label": "俄罗斯",
+          "value": "RU"
+        },
+        {
+          "label": "保加利亚",
+          "value": "BG"
+        },
+        {
+          "label": "克罗地亚",
+          "value": "HR"
+        },
+        {
+          "label": "关岛",
+          "value": "GU"
+        },
+        {
+          "label": "冈比亚",
+          "value": "GM"
+        },
+        {
+          "label": "冰岛",
+          "value": "IS"
+        },
+        {
+          "label": "几内亚",
+          "value": "GN"
+        },
+        {
+          "label": "几内亚比绍",
+          "value": "GW"
+        },
+        {
+          "label": "列支敦士登",
+          "value": "LI"
+        },
+        {
+          "label": "刚果",
+          "value": "CG"
+        },
+        {
+          "label": "刚果民主共和国",
+          "value": "CD"
+        },
+        {
+          "label": "利比亚",
+          "value": "LY"
+        },
+        {
+          "label": "利比里亚",
+          "value": "LR"
+        },
+        {
+          "label": "加拿大",
+          "value": "CA"
+        },
+        {
+          "label": "加纳",
+          "value": "GH"
+        },
+        {
+          "label": "加蓬",
+          "value": "GA"
+        },
+        {
+          "label": "匈牙利",
+          "value": "HU"
+        },
+        {
+          "label": "北马里亚纳群岛共荣邦",
+          "value": "MP"
+        },
+        {
+          "label": "南乔治亚和南德桑威奇群岛",
+          "value": "GS"
+        },
+        {
+          "label": "南斯拉夫",
+          "value": "YU"
+        },
+        {
+          "label": "南极洲",
+          "value": "AQ"
+        },
+        {
+          "label": "南苏丹",
+          "value": "SS"
+        },
+        {
+          "label": "南非",
+          "value": "ZA"
+        },
+        {
+          "label": "博奈尔岛、圣尤斯达蒂斯和萨巴岛",
+          "value": "BQ"
+        },
+        {
+          "label": "博茨瓦纳",
+          "value": "BW"
+        },
+        {
+          "label": "卡塔尔",
+          "value": "QA"
+        },
+        {
+          "label": "卢旺达",
+          "value": "RW"
+        },
+        {
+          "label": "卢森堡",
+          "value": "LU"
+        },
+        {
+          "label": "印度",
+          "value": "IN"
+        },
+        {
+          "label": "印度尼西亚",
+          "value": "ID"
+        },
+        {
+          "label": "危地马拉 (瓜地馬拉)",
+          "value": "GT"
+        },
+        {
+          "label": "厄瓜多尔",
+          "value": "EC"
+        },
+        {
+          "label": "厄立特里亚",
+          "value": "ER"
+        },
+        {
+          "label": "叙利亚",
+          "value": "SY"
+        },
+        {
+          "label": "古巴",
+          "value": "CU"
+        },
+        {
+          "label": "台湾",
+          "value": "TW"
+        },
+        {
+          "label": "史瓦济兰",
+          "value": "SZ"
+        },
+        {
+          "label": "吉尔吉斯斯坦",
+          "value": "KG"
+        },
+        {
+          "label": "吉布提",
+          "value": "DJ"
+        },
+        {
+          "label": "吐瓦鲁",
+          "value": "TV"
+        },
+        {
+          "label": "哈萨克斯坦",
+          "value": "KZ"
+        },
+        {
+          "label": "哥伦比亚",
+          "value": "CO"
+        },
+        {
+          "label": "哥斯达黎加",
+          "value": "CR"
+        },
+        {
+          "label": "喀麦隆",
+          "value": "CM"
+        },
+        {
+          "label": "土库曼",
+          "value": "TM"
+        },
+        {
+          "label": "土耳其",
+          "value": "TR"
+        },
+        {
+          "label": "圣卢西亚",
+          "value": "LC"
+        },
+        {
+          "label": "圣基茨和尼维斯",
+          "value": "KN"
+        },
+        {
+          "label": "圣多美普林西比",
+          "value": "ST"
+        },
+        {
+          "label": "圣尤斯塔提马斯岛",
+          "value": "XE"
+        },
+        {
+          "label": "圣巴特勒米岛",
+          "value": "XY"
+        },
+        {
+          "label": "圣巴特岛",
+          "value": "BL"
+        },
+        {
+          "label": "圣文森特和格林纳丁斯",
+          "value": "VC"
+        },
+        {
+          "label": "圣皮埃尔和密克隆岛",
+          "value": "PM"
+        },
+        {
+          "label": "圣诞岛",
+          "value": "CX"
+        },
+        {
+          "label": "圣赫勒那",
+          "value": "SH"
+        },
+        {
+          "label": "圣马丁",
+          "value": "MF"
+        },
+        {
+          "label": "圣马丁岛",
+          "value": "SX"
+        },
+        {
+          "label": "圣马力诺",
+          "value": "SM"
+        },
+        {
+          "label": "圭亚那",
+          "value": "GY"
+        },
+        {
+          "label": "坦桑尼亚",
+          "value": "TZ"
+        },
+        {
+          "label": "埃及",
+          "value": "EG"
+        },
+        {
+          "label": "埃塞俄比亚",
+          "value": "ET"
+        },
+        {
+          "label": "基里巴斯",
+          "value": "KI"
+        },
+        {
+          "label": "塔吉克斯坦",
+          "value": "TJ"
+        },
+        {
+          "label": "塞内加尔",
+          "value": "SN"
+        },
+        {
+          "label": "塞尔维亚",
+          "value": "RS"
+        },
+        {
+          "label": "塞尔维亚和黑山",
+          "value": "CS"
+        },
+        {
+          "label": "塞拉利昂",
+          "value": "SL"
+        },
+        {
+          "label": "塞浦路斯",
+          "value": "CY"
+        },
+        {
+          "label": "塞舌尔",
+          "value": "SC"
+        },
+        {
+          "label": "墨西哥",
+          "value": "MX"
+        },
+        {
+          "label": "多哥",
+          "value": "TG"
+        },
+        {
+          "label": "多米尼克",
+          "value": "DM"
+        },
+        {
+          "label": "多米尼加共和国",
+          "value": "DO"
+        },
+        {
+          "label": "奥地利",
+          "value": "AT"
+        },
+        {
+          "label": "委内瑞拉",
+          "value": "VE"
+        },
+        {
+          "label": "孟加拉国",
+          "value": "BD"
+        },
+        {
+          "label": "安哥拉",
+          "value": "AO"
+        },
+        {
+          "label": "安圭拉",
+          "value": "AI"
+        },
+        {
+          "label": "安提瓜和巴布达",
+          "value": "AG"
+        },
+        {
+          "label": "安道尔",
+          "value": "AD"
+        },
+        {
+          "label": "密克罗尼西亚",
+          "value": "FM"
+        },
+        {
+          "label": "尼加拉瓜",
+          "value": "NI"
+        },
+        {
+          "label": "尼日利亚",
+          "value": "NG"
+        },
+        {
+          "label": "尼日尔",
+          "value": "NE"
+        },
+        {
+          "label": "尼泊尔",
+          "value": "NP"
+        },
+        {
+          "label": "尼维斯岛",
+          "value": "XN"
+        },
+        {
+          "label": "巴勒斯坦",
+          "value": "PS"
+        },
+        {
+          "label": "巴哈马",
+          "value": "BS"
+        },
+        {
+          "label": "巴基斯坦",
+          "value": "PK"
+        },
+        {
+          "label": "巴巴多斯",
+          "value": "BB"
+        },
+        {
+          "label": "巴布亚新几内亚",
+          "value": "PG"
+        },
+        {
+          "label": "巴拉圭",
+          "value": "PY"
+        },
+        {
+          "label": "巴拿马",
+          "value": "PA"
+        },
+        {
+          "label": "巴林",
+          "value": "BH"
+        },
+        {
+          "label": "巴西",
+          "value": "BR"
+        },
+        {
+          "label": "布基纳法索",
+          "value": "BF"
+        },
+        {
+          "label": "布韦岛",
+          "value": "BV"
+        },
+        {
+          "label": "希腊",
+          "value": "GR"
+        },
+        {
+          "label": "帕劳",
+          "value": "PW"
+        },
+        {
+          "label": "库克群岛",
+          "value": "CK"
+        },
+        {
+          "label": "库拉索岛",
+          "value": "CW"
+        },
+        {
+          "label": "库拉索岛(荷兰)",
+          "value": "XC"
+        },
+        {
+          "label": "开曼群岛",
+          "value": "KY"
+        },
+        {
+          "label": "德国",
+          "value": "DE"
+        },
+        {
+          "label": "意大利",
+          "value": "IT"
+        },
+        {
+          "label": "所罗门群岛",
+          "value": "SB"
+        },
+        {
+          "label": "扎伊尔",
+          "value": "ZR"
+        },
+        {
+          "label": "托克劳",
+          "value": "TK"
+        },
+        {
+          "label": "拉脱维亚",
+          "value": "LV"
+        },
+        {
+          "label": "挪威",
+          "value": "NO"
+        },
+        {
+          "label": "捷克共和国",
+          "value": "CZ"
+        },
+        {
+          "label": "摩尔多瓦",
+          "value": "MD"
+        },
+        {
+          "label": "摩洛哥",
+          "value": "MA"
+        },
+        {
+          "label": "摩纳哥",
+          "value": "MC"
+        },
+        {
+          "label": "文莱达鲁萨兰国",
+          "value": "BN"
+        },
+        {
+          "label": "斐济",
+          "value": "FJ"
+        },
+        {
+          "label": "斯洛伐克",
+          "value": "SK"
+        },
+        {
+          "label": "斯洛文尼亚",
+          "value": "SI"
+        },
+        {
+          "label": "斯瓦尔巴特和扬马延群岛",
+          "value": "SJ"
+        },
+        {
+          "label": "斯里兰卡",
+          "value": "LK"
+        },
+        {
+          "label": "新加坡",
+          "value": "SG"
+        },
+        {
+          "label": "新喀里多尼亚",
+          "value": "NC"
+        },
+        {
+          "label": "新西兰",
+          "value": "NZ"
+        },
+        {
+          "label": "日本",
+          "value": "JP"
+        },
+        {
+          "label": "智利",
+          "value": "CL"
+        },
+        {
+          "label": "曼岛",
+          "value": "IM"
+        },
+        {
+          "label": "朝鲜",
+          "value": "KP"
+        },
+        {
+          "label": "未来之城",
+          "value": "unknown"
+        },
+        {
+          "label": "柬埔寨",
+          "value": "KH"
+        },
+        {
+          "label": "根西岛",
+          "value": "GG"
+        },
+        {
+          "label": "格林纳达",
+          "value": "GD"
+        },
+        {
+          "label": "格陵兰",
+          "value": "GL"
+        },
+        {
+          "label": "格鲁吉亚",
+          "value": "GE"
+        },
+        {
+          "label": "梵帝冈",
+          "value": "VA"
+        },
+        {
+          "label": "比利时",
+          "value": "BE"
+        },
+        {
+          "label": "毛里塔尼亚",
+          "value": "MR"
+        },
+        {
+          "label": "毛里求斯",
+          "value": "MU"
+        },
+        {
+          "label": "汤加",
+          "value": "TO"
+        },
+        {
+          "label": "沙特阿拉伯",
+          "value": "SA"
+        },
+        {
+          "label": "法国",
+          "value": "FR"
+        },
+        {
+          "label": "法属南方领土",
+          "value": "TF"
+        },
+        {
+          "label": "法属波利尼西亚",
+          "value": "PF"
+        },
+        {
+          "label": "法屬圭亞那",
+          "value": "GF"
+        },
+        {
+          "label": "法罗群岛",
+          "value": "FO"
+        },
+        {
+          "label": "波兰",
+          "value": "PL"
+        },
+        {
+          "label": "波内尔岛",
+          "value": "XB"
+        },
+        {
+          "label": "波多黎各",
+          "value": "PR"
+        },
+        {
+          "label": "波斯尼亚 - 黑塞哥维那",
+          "value": "BA"
+        },
+        {
+          "label": "泰国",
+          "value": "TH"
+        },
+        {
+          "label": "泽西岛",
+          "value": "JE"
+        },
+        {
+          "label": "津巴布韦",
+          "value": "ZW"
+        },
+        {
+          "label": "洪都拉斯",
+          "value": "HN"
+        },
+        {
+          "label": "海地",
+          "value": "HT"
+        },
+        {
+          "label": "澳大利亚",
+          "value": "AU"
+        },
+        {
+          "label": "澳门",
+          "value": "MO"
+        },
+        {
+          "label": "爱尔兰",
+          "value": "IE"
+        },
+        {
+          "label": "爱沙尼亚",
+          "value": "EE"
+        },
+        {
+          "label": "牙买加",
+          "value": "JM"
+        },
+        {
+          "label": "特克斯和凯科斯群岛",
+          "value": "TC"
+        },
+        {
+          "label": "特立尼达和多巴哥",
+          "value": "TT"
+        },
+        {
+          "label": "特里斯坦-达库尼亚群岛",
+          "value": "TA"
+        },
+        {
+          "label": "玻利维亚",
+          "value": "BO"
+        },
+        {
+          "label": "瑙鲁",
+          "value": "NR"
+        },
+        {
+          "label": "瑞典",
+          "value": "SE"
+        },
+        {
+          "label": "瑞士",
+          "value": "CH"
+        },
+        {
+          "label": "瓜德罗普",
+          "value": "GP"
+        },
+        {
+          "label": "瓦利斯和富图纳群岛",
+          "value": "WF"
+        },
+        {
+          "label": "瓦努阿图",
+          "value": "VU"
+        },
+        {
+          "label": "留尼汪",
+          "value": "RE"
+        },
+        {
+          "label": "白俄罗斯",
+          "value": "BY"
+        },
+        {
+          "label": "百慕达群岛",
+          "value": "BM"
+        },
+        {
+          "label": "皮特开恩群岛",
+          "value": "PN"
+        },
+        {
+          "label": "直布罗陀",
+          "value": "GI"
+        },
+        {
+          "label": "福克兰群岛（马尔维纳斯）",
+          "value": "FK"
+        },
+        {
+          "label": "科威特",
+          "value": "KW"
+        },
+        {
+          "label": "科摩罗",
+          "value": "KM"
+        },
+        {
+          "label": "科特迪瓦",
+          "value": "CI"
+        },
+        {
+          "label": "科科斯（基林）群岛",
+          "value": "CC"
+        },
+        {
+          "label": "秘鲁",
+          "value": "PE"
+        },
+        {
+          "label": "突尼斯",
+          "value": "TN"
+        },
+        {
+          "label": "立陶宛",
+          "value": "LT"
+        },
+        {
+          "label": "索马里",
+          "value": "SO"
+        },
+        {
+          "label": "约旦",
+          "value": "JO"
+        },
+        {
+          "label": "纳米比亚",
+          "value": "NA"
+        },
+        {
+          "label": "纽埃",
+          "value": "NU"
+        },
+        {
+          "label": "缅甸",
+          "value": "MM"
+        },
+        {
+          "label": "罗马尼亚",
+          "value": "RO"
+        },
+        {
+          "label": "美国",
+          "value": "US"
+        },
+        {
+          "label": "美国边远小岛",
+          "value": "UM"
+        },
+        {
+          "label": "美属萨摩亚",
+          "value": "AS"
+        },
+        {
+          "label": "老挝",
+          "value": "LA"
+        },
+        {
+          "label": "肯尼亚",
+          "value": "KE"
+        },
+        {
+          "label": "芬兰",
+          "value": "FI"
+        },
+        {
+          "label": "苏丹",
+          "value": "SD"
+        },
+        {
+          "label": "苏里南",
+          "value": "SR"
+        },
+        {
+          "label": "英国",
+          "value": "UK"
+        },
+        {
+          "label": "英联邦的印度洋领域",
+          "value": "IO"
+        },
+        {
+          "label": "荷兰",
+          "value": "NL"
+        },
+        {
+          "label": "荷属安的列斯",
+          "value": "AN"
+        },
+        {
+          "label": "莫桑比克",
+          "value": "MZ"
+        },
+        {
+          "label": "莱索托",
+          "value": "LS"
+        },
+        {
+          "label": "菲律宾",
+          "value": "PH"
+        },
+        {
+          "label": "萨尔瓦多",
+          "value": "SV"
+        },
+        {
+          "label": "萨摩亚",
+          "value": "WS"
+        },
+        {
+          "label": "葡萄牙",
+          "value": "PT"
+        },
+        {
+          "label": "蒙古",
+          "value": "MN"
+        },
+        {
+          "label": "蒙特塞拉特岛",
+          "value": "MS"
+        },
+        {
+          "label": "蒲隆地",
+          "value": "BI"
+        },
+        {
+          "label": "西撒哈拉",
+          "value": "EH"
+        },
+        {
+          "label": "西班牙",
+          "value": "ES"
+        },
+        {
+          "label": "西班牙加那利群岛",
+          "value": "IC"
+        },
+        {
+          "label": "诺福克岛",
+          "value": "NF"
+        },
+        {
+          "label": "贝宁",
+          "value": "BJ"
+        },
+        {
+          "label": "赞比亚",
+          "value": "ZM"
+        },
+        {
+          "label": "赤道几内亚",
+          "value": "GQ"
+        },
+        {
+          "label": "赫德和麦克唐纳群岛",
+          "value": "HM"
+        },
+        {
+          "label": "越南",
+          "value": "VN"
+        },
+        {
+          "label": "阿兰群岛",
+          "value": "AX"
+        },
+        {
+          "label": "阿塞拜疆",
+          "value": "AZ"
+        },
+        {
+          "label": "阿富汗",
+          "value": "AF"
+        },
+        {
+          "label": "阿尔及利亚",
+          "value": "DZ"
+        },
+        {
+          "label": "阿尔巴尼亚",
+          "value": "AL"
+        },
+        {
+          "label": "阿拉伯联合酋长国",
+          "value": "AE"
+        },
+        {
+          "label": "阿曼",
+          "value": "OM"
+        },
+        {
+          "label": "阿根廷",
+          "value": "AR"
+        },
+        {
+          "label": "阿森松岛",
+          "value": "AC"
+        },
+        {
+          "label": "阿鲁巴",
+          "value": "AW"
+        },
+        {
+          "label": "韩国",
+          "value": "KR"
+        },
+        {
+          "label": "香港",
+          "value": "HK"
+        },
+        {
+          "label": "马其顿",
+          "value": "MK"
+        },
+        {
+          "label": "马尔代夫",
+          "value": "MV"
+        },
+        {
+          "label": "马拉维",
+          "value": "MW"
+        },
+        {
+          "label": "马提尼克",
+          "value": "MQ"
+        },
+        {
+          "label": "马来西亚",
+          "value": "MY"
+        },
+        {
+          "label": "马约特岛",
+          "value": "YT"
+        },
+        {
+          "label": "马绍尔群岛",
+          "value": "MH"
+        },
+        {
+          "label": "马耳他",
+          "value": "MT"
+        },
+        {
+          "label": "马达加斯加",
+          "value": "MG"
+        },
+        {
+          "label": "马里",
+          "value": "ML"
+        },
+        {
+          "label": "黎巴嫩",
+          "value": "LB"
+        },
+        {
+          "label": "黑山",
+          "value": "ME"
+        }
+      ]
+    },
+    "required": true
+  },
+  "batteries_required": {
+    "field": "batteries_required",
+    "label": "是否需要电池",
+    "component": "Switch",
+    "componentProps": {
+      "placeholder": "如果需要使用电池为商品供电，或者如果商品就是电池，请选择“是”；否则，请选择“否”。请注意，内置可充电电池也被视为电池。",
+      "options": [
+        {
+          "label": "是",
+          "value": true
+        },
+        {
+          "label": "没有",
+          "value": false
+        }
+      ]
+    }
+  },
+  "batteries_included": {
+    "field": "batteries_included",
+    "label": "是否附带电池",
+    "component": "Switch",
+    "componentProps": {
+      "placeholder": "请说明商品中是否附带电池。",
+      "options": [
+        {
+          "label": "是",
+          "value": true
+        },
+        {
+          "label": "没有",
+          "value": false
+        }
+      ]
+    }
+  },
+  "number_of_lithium_metal_cells": {
+    "field": "number_of_lithium_metal_cells",
+    "label": "锂金属电池单元数量",
+    "component": "InputNumber",
+    "componentProps": {
+      "placeholder": "请注明产品中的锂金属电池总数，其中这些电池不在电池壳体中（如纽扣电池）。",
+      "min": 0
+    }
+  },
+  "number_of_lithium_ion_cells": {
+    "field": "number_of_lithium_ion_cells",
+    "label": "锂离子电池单元数量",
+    "component": "InputNumber",
+    "componentProps": {
+      "placeholder": "请注明产品中的锂离子电池总数，其中这些电池不在电池壳体中。例如，AA 电池被视为一块电池",
+      "min": 0
+    }
+  },
+  "supplier_declared_dg_hz_regulation": {
+    "field": "supplier_declared_dg_hz_regulation",
+    "label": "危险商品规管",
+    "component": "Select",
+    "componentProps": {
+      "placeholder": "如果产品是受运输、储存和/或废物管制的危险商品或危险材料、物质或废物，请从有效值表中进行选择",
+      "options": [
+        {
+          "label": "GHS",
+          "value": "ghs"
+        },
+        {
+          "label": "不适用",
+          "value": "not_applicable"
+        },
+        {
+          "label": "储存",
+          "value": "storage"
+        },
+        {
+          "label": "其他",
+          "value": "other"
+        },
+        {
+          "label": "废物",
+          "value": "waste"
+        },
+        {
+          "label": "未知",
+          "value": "unknown"
+        },
+        {
+          "label": "运输",
+          "value": "transportation"
+        }
+      ]
+    },
+    "required": true
+  },
+  "ghs_classification": {
+    "field": "ghs_classification",
+    "label": "GHS",
+    "component": "Select",
+    "componentProps": {
+      "placeholder": "如果选择 GHS 作为危险品规则，请从有效值列表中选择产品的 GHS 类别。GHS 类别指示由 GHS 分类系统分配的警告声明。",
+      "options": [
+        {
+          "label": "Amazon 特定编号带警告标签",
+          "value": "amzn_specific_no_label_with_warning"
+        },
+        {
+          "label": "健康危害",
+          "value": "health_hazard"
+        },
+        {
+          "label": "刺激性",
+          "value": "irritant"
+        },
+        {
+          "label": "压缩气体",
+          "value": "compressed_gas"
+        },
+        {
+          "label": "易氧化",
+          "value": "oxidizing"
+        },
+        {
+          "label": "易燃",
+          "value": "flammable"
+        },
+        {
+          "label": "易爆",
+          "value": "explosive"
+        },
+        {
+          "label": "有害环境",
+          "value": "environmentally_damaging"
+        },
+        {
+          "label": "毒性",
+          "value": "toxic"
+        },
+        {
+          "label": "腐蚀性",
+          "value": "corrosive"
+        }
+      ]
+    }
+  },
+  "safety_data_sheet_url": {
+    "field": "safety_data_sheet_url",
+    "label": "安全数据表（SDS 或 MSDS）URL",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "如果在“危险品法规”栏中选择了“不适用”或“未知”以外的任何值，请提供 SDS/MSDS URL",
+      "max": 23397
+    }
+  },
+  "dsa_responsible_party_address": {
+    "field": "dsa_responsible_party_address",
+    "label": "负责人的电子邮件或电子地址",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "说明欧盟责任人的电子邮件地址或 URL，以遵守《通用产品安全法规》(GPSR)。如果您过去已经提交过该责任人的信息，请确保使用相同的电子邮件或 URL。",
+      "max": 1000
+    }
+  },
+  "gpsr_safety_attestation": {
+    "field": "gpsr_safety_attestation",
+    "label": "GPSR 安全认证",
+    "component": "Switch",
+    "componentProps": {
+      "placeholder": "如果您的产品没有任何警告和安全信息，请勾选“是”，因为即使没有此类信息，也可以安全地按预期使用。",
+      "options": [
+        {
+          "label": "是",
+          "value": true
+        },
+        {
+          "label": "没有",
+          "value": false
+        }
+      ]
+    }
+  },
+  "gpsr_manufacturer_reference_gpsr_manufacturer_email_address": {
+    "field": "gpsr_manufacturer_reference_gpsr_manufacturer_email_address",
+    "label": "GPSR 制造商参考",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "说明制造商的电子邮件地址或 URL，以遵守欧盟《通用产品安全法规》(GPSR)。如果您过去已经提交过该制造商的信息，请确保使用相同的电子邮件或 URL。",
+      "max": 100
+    }
+  },
+  "ships_globally": {
+    "field": "ships_globally",
+    "label": "全球发货",
+    "component": "Switch",
+    "componentProps": {
+      "placeholder": "提供该商品是否可以由亚马逊全球发货。",
+      "options": [
+        {
+          "label": "是",
+          "value": true
+        },
+        {
+          "label": "没有",
+          "value": false
+        }
+      ]
+    }
+  },
+  "ghs_chemical_h_code": {
+    "field": "ghs_chemical_h_code",
+    "component": "Select",
+    "componentProps": {
+      "placeholder": "提供化学物质/混合物的GHS化学危险编码,以向客户显示警告。",
+      "options": [
+        {
+          "label": "EUH014",
+          "value": "EUH014"
+        },
+        {
+          "label": "EUH018",
+          "value": "EUH018"
+        },
+        {
+          "label": "EUH019",
+          "value": "EUH019"
+        },
+        {
+          "label": "EUH029",
+          "value": "EUH029"
+        },
+        {
+          "label": "EUH031",
+          "value": "EUH031"
+        },
+        {
+          "label": "EUH032",
+          "value": "EUH032"
+        },
+        {
+          "label": "EUH044",
+          "value": "EUH044"
+        },
+        {
+          "label": "EUH066",
+          "value": "EUH066"
+        },
+        {
+          "label": "EUH070",
+          "value": "EUH070"
+        },
+        {
+          "label": "EUH071",
+          "value": "EUH071"
+        },
+        {
+          "label": "EUH201",
+          "value": "EUH201"
+        },
+        {
+          "label": "EUH201A",
+          "value": "EUH201A"
+        },
+        {
+          "label": "EUH202",
+          "value": "EUH202"
+        },
+        {
+          "label": "EUH203",
+          "value": "EUH203"
+        },
+        {
+          "label": "EUH204",
+          "value": "EUH204"
+        },
+        {
+          "label": "EUH205",
+          "value": "EUH205"
+        },
+        {
+          "label": "EUH206",
+          "value": "EUH206"
+        },
+        {
+          "label": "EUH207",
+          "value": "EUH207"
+        },
+        {
+          "label": "EUH208",
+          "value": "EUH208"
+        },
+        {
+          "label": "EUH209",
+          "value": "EUH209"
+        },
+        {
+          "label": "EUH209A",
+          "value": "EUH209A"
+        },
+        {
+          "label": "EUH210",
+          "value": "EUH210"
+        },
+        {
+          "label": "EUH211",
+          "value": "EUH211"
+        },
+        {
+          "label": "EUH212",
+          "value": "EUH212"
+        },
+        {
+          "label": "EUH380",
+          "value": "EUH380"
+        },
+        {
+          "label": "EUH381",
+          "value": "EUH381"
+        },
+        {
+          "label": "EUH401",
+          "value": "EUH401"
+        },
+        {
+          "label": "EUH430",
+          "value": "EUH430"
+        },
+        {
+          "label": "EUH431",
+          "value": "EUH431"
+        },
+        {
+          "label": "EUH440",
+          "value": "EUH440"
+        },
+        {
+          "label": "EUH441",
+          "value": "EUH441"
+        },
+        {
+          "label": "EUH450",
+          "value": "EUH450"
+        },
+        {
+          "label": "EUH451",
+          "value": "EUH451"
+        },
+        {
+          "label": "H200",
+          "value": "H200"
+        },
+        {
+          "label": "H201",
+          "value": "H201"
+        },
+        {
+          "label": "H202",
+          "value": "H202"
+        },
+        {
+          "label": "H203",
+          "value": "H203"
+        },
+        {
+          "label": "H204",
+          "value": "H204"
+        },
+        {
+          "label": "H205",
+          "value": "H205"
+        },
+        {
+          "label": "H220",
+          "value": "H220"
+        },
+        {
+          "label": "H221",
+          "value": "H221"
+        },
+        {
+          "label": "H222",
+          "value": "H222"
+        },
+        {
+          "label": "H223",
+          "value": "H223"
+        },
+        {
+          "label": "H224",
+          "value": "H224"
+        },
+        {
+          "label": "H225",
+          "value": "H225"
+        },
+        {
+          "label": "H226",
+          "value": "H226"
+        },
+        {
+          "label": "H228",
+          "value": "H228"
+        },
+        {
+          "label": "H229",
+          "value": "H229"
+        },
+        {
+          "label": "H230",
+          "value": "H230"
+        },
+        {
+          "label": "H231",
+          "value": "H231"
+        },
+        {
+          "label": "H240",
+          "value": "H240"
+        },
+        {
+          "label": "H241",
+          "value": "H241"
+        },
+        {
+          "label": "H242",
+          "value": "H242"
+        },
+        {
+          "label": "H250",
+          "value": "H250"
+        },
+        {
+          "label": "H251",
+          "value": "H251"
+        },
+        {
+          "label": "H252",
+          "value": "H252"
+        },
+        {
+          "label": "H260",
+          "value": "H260"
+        },
+        {
+          "label": "H261",
+          "value": "H261"
+        },
+        {
+          "label": "H270",
+          "value": "H270"
+        },
+        {
+          "label": "H271",
+          "value": "H271"
+        },
+        {
+          "label": "H272",
+          "value": "H272"
+        },
+        {
+          "label": "H280",
+          "value": "H280"
+        },
+        {
+          "label": "H281",
+          "value": "H281"
+        },
+        {
+          "label": "H290",
+          "value": "H290"
+        },
+        {
+          "label": "H300",
+          "value": "H300"
+        },
+        {
+          "label": "H301",
+          "value": "H301"
+        },
+        {
+          "label": "H302",
+          "value": "H302"
+        },
+        {
+          "label": "H304",
+          "value": "H304"
+        },
+        {
+          "label": "H310",
+          "value": "H310"
+        },
+        {
+          "label": "H311",
+          "value": "H311"
+        },
+        {
+          "label": "H312",
+          "value": "H312"
+        },
+        {
+          "label": "H314",
+          "value": "H314"
+        },
+        {
+          "label": "H315",
+          "value": "H315"
+        },
+        {
+          "label": "H317",
+          "value": "H317"
+        },
+        {
+          "label": "H318",
+          "value": "H318"
+        },
+        {
+          "label": "H319",
+          "value": "H319"
+        },
+        {
+          "label": "H330",
+          "value": "H330"
+        },
+        {
+          "label": "H331",
+          "value": "H331"
+        },
+        {
+          "label": "H332",
+          "value": "H332"
+        },
+        {
+          "label": "H334",
+          "value": "H334"
+        },
+        {
+          "label": "H335",
+          "value": "H335"
+        },
+        {
+          "label": "H336",
+          "value": "H336"
+        },
+        {
+          "label": "H340",
+          "value": "H340"
+        },
+        {
+          "label": "H341",
+          "value": "H341"
+        },
+        {
+          "label": "H350",
+          "value": "H350"
+        },
+        {
+          "label": "H350I",
+          "value": "H350I"
+        },
+        {
+          "label": "H351",
+          "value": "H351"
+        },
+        {
+          "label": "H360",
+          "value": "H360"
+        },
+        {
+          "label": "H361",
+          "value": "H361"
+        },
+        {
+          "label": "H362",
+          "value": "H362"
+        },
+        {
+          "label": "H370",
+          "value": "H370"
+        },
+        {
+          "label": "H371",
+          "value": "H371"
+        },
+        {
+          "label": "H372",
+          "value": "H372"
+        },
+        {
+          "label": "H373",
+          "value": "H373"
+        },
+        {
+          "label": "H400",
+          "value": "H400"
+        },
+        {
+          "label": "H410",
+          "value": "H410"
+        },
+        {
+          "label": "H411",
+          "value": "H411"
+        },
+        {
+          "label": "H412",
+          "value": "H412"
+        },
+        {
+          "label": "H413",
+          "value": "H413"
+        },
+        {
+          "label": "H420",
+          "value": "H420"
+        }
+      ]
+    }
+  },
+  "main_product_image_locator_media_location": {
+    "field": "main_product_image_locator_media_location",
+    "label": "主产品图片定位器",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "产品的交付主图所在的链接地址。"
+    }
+  },
+  "other_product_image_locator_1_media_location": {
+    "field": "other_product_image_locator_1_media_location",
+    "label": "其他产品图片定位器",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "产品其他图片的链接地址 。当客户点击查看与产品相关的其他视图时，这些图像将显示在详细信息页面上。"
+    }
+  },
+  "other_product_image_locator_2_media_location": {
+    "field": "other_product_image_locator_2_media_location",
+    "label": "其他产品图片定位器",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "其他产品图片的链接地址。当客户点击查看与产品相关的其他视图时，这些图片将显示在详细信息页面上。"
+    }
+  },
+  "other_product_image_locator_3_media_location": {
+    "field": "other_product_image_locator_3_media_location",
+    "label": "其他产品图片定位器",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "其他产品图片的链接地址。当客户点击查看与产品相关的其他视图时，这些图片将显示在详细信息页面上。"
+    }
+  },
+  "other_product_image_locator_4_media_location": {
+    "field": "other_product_image_locator_4_media_location",
+    "label": "其他产品图片定位器",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "其他产品图片的链接地址。当客户点击查看与产品相关的其他视图时，这些图片将显示在详细信息页面上。"
+    }
+  },
+  "other_product_image_locator_5_media_location": {
+    "field": "other_product_image_locator_5_media_location",
+    "label": "其他产品图片定位器",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "其他产品图片的链接地址。当客户点击查看与产品相关的其他视图时，这些图片将显示在详细信息页面上。"
+    }
+  },
+  "other_product_image_locator_6_media_location": {
+    "field": "other_product_image_locator_6_media_location",
+    "label": "其他产品图片定位器 6",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "其他产品图片的链接地址。当客户点击查看与产品相关的其他视图时，这些图片将显示在详细信息页面上。"
+    }
+  },
+  "other_product_image_locator_7_media_location": {
+    "field": "other_product_image_locator_7_media_location",
+    "label": "其他产品图片定位器 7",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "其他产品图片的链接地址。当客户点击查看与产品相关的其他视图时，这些图片将显示在详细信息页面上。"
+    }
+  },
+  "other_product_image_locator_8_media_location": {
+    "field": "other_product_image_locator_8_media_location",
+    "label": "其他产品图片定位器 8",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "其他产品图片的链接地址。当客户点击查看与产品相关的其他视图时，这些图片将显示在详细信息页面上。"
+    }
+  },
+  "swatch_product_image_locator_media_location": {
+    "field": "swatch_product_image_locator_media_location",
+    "label": "样本产品图片定位器",
+    "component": "Input",
+    "componentProps": {
+      "placeholder": "产品的彩色样品图片所在的链接地址"
+    }
+  },
+  "number_of_boxes": {
+    "field": "number_of_boxes",
+    "label": "箱子数量",
+    "component": "InputNumber",
+    "componentProps": {
+      "placeholder": "提供运输产品所用的箱子数量",
+      "max": 100,
+      "min": 1
+    }
+  }
+}

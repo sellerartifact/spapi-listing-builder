@@ -5,7 +5,7 @@ import { ConvertSchemaItem2FormItem, SchemaCheck } from '../../src/index'
 
 describe('schemaCheck should', () => {
   const myJsonSchema = JSON.parse(
-    fs.readFileSync(path.resolve(__dirname, './schema/HOME.json')).toString(),
+    fs.readFileSync(path.resolve(__dirname, './schema/HOME-gb.json')).toString(),
   )
 
   const schemaCheck = new SchemaCheck(myJsonSchema, {})
@@ -122,6 +122,13 @@ describe('schemaCheck should', () => {
   it('convert2FormItems should', () => {
     const list = schemaCheck.convert2FormItems()
     console.log(JSON.stringify(list, null, 2))
+    const map: any = {}
+    list.forEach((item) => {
+      if (item && item.field) {
+        map[item.field] = item
+      }
+    })
+    fs.writeFileSync('./home-gb.json', JSON.stringify(map, null, 2))
     expect(Array.isArray(list)).toEqual(true)
   })
 

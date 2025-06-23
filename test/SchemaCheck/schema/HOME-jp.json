@@ -4,11 +4,11 @@
   "$comment": "Amazon product type definition for HOME product type",
   "$defs": {
     "marketplace_id": {
-      "default": "A1F83G8C2ARO7P",
+      "default": "A1VC38T7YXB528",
       "editable": false,
       "hidden": true,
       "examples": [
-        "Amazon.co.uk"
+        "Amazon.co.jp"
       ],
       "type": "string",
       "anyOf": [
@@ -18,20 +18,20 @@
         {
           "type": "string",
           "enum": [
-            "A1F83G8C2ARO7P"
+            "A1VC38T7YXB528"
           ],
           "enumNames": [
-            "Amazon.co.uk"
+            "Amazon.co.jp"
           ]
         }
       ]
     },
     "language_tag": {
-      "default": "en_GB",
+      "default": "ja_JP",
       "editable": false,
       "hidden": true,
       "examples": [
-        "英语 (英国)"
+        "日语 (日本)"
       ],
       "type": "string",
       "anyOf": [
@@ -41,10 +41,10 @@
         {
           "type": "string",
           "enum": [
-            "en_GB"
+            "ja_JP"
           ],
           "enumNames": [
-            "英语 (英国)"
+            "日语 (日本)"
           ]
         }
       ]
@@ -650,11 +650,11 @@
             ],
             "type": "string",
             "enum": [
-              "AMAZON_EU",
+              "AMAZON_JP",
               "DEFAULT"
             ],
             "enumNames": [
-              "AMAZON_EU",
+              "AMAZON_JP",
               "DEFAULT"
             ]
           },
@@ -840,11 +840,11 @@
           "currency": {
             "title": "貨幣",
             "description": "选择相应的货币",
-            "default": "GBP",
-            "editable": true,
-            "hidden": false,
+            "default": "JPY",
+            "editable": false,
+            "hidden": true,
             "examples": [
-              "GBP"
+              "JPY"
             ],
             "type": "string",
             "anyOf": [
@@ -854,10 +854,10 @@
               {
                 "type": "string",
                 "enum": [
-                  "GBP"
+                  "JPY"
                 ],
                 "enumNames": [
-                  "GBP"
+                  "JPY"
                 ]
               }
             ]
@@ -1155,7 +1155,7 @@
               "ALL"
             ],
             "enumNames": [
-              "Sell on Amazon"
+              "Amazonで販売"
             ]
           },
           "quantity_discount_plan": {
@@ -1382,8 +1382,7 @@
       "items": {
         "type": "object",
         "required": [
-          "currency",
-          "value_with_tax"
+          "currency"
         ],
         "properties": {
           "currency": {
@@ -1396,27 +1395,26 @@
             ],
             "type": "string",
             "enum": [
-              "GBP"
+              "JPY"
             ],
             "enumNames": [
-              "GBP"
+              "JPY"
             ]
           },
           "marketplace_id": {
             "$ref": "#/$defs/marketplace_id"
           },
-          "value_with_tax": {
-            "title": "含税价目表",
-            "description": "给出含税的产品标价。  标价通常是指制造商建议零售价（MSRP）、推荐零售价（RRP）或建议零售价（SRP）。这不是发行价或成本价。",
+          "value": {
+            "title": "价格表（含税）",
+            "description": "提供商品的定价（含税）。定价是制造商、供应商或卖家提供的商品建议零售价。这不是报价或成本价。如果您无法提供值，请输入 0。",
             "editable": true,
             "hidden": false,
             "examples": [
-              "69"
+              "67"
             ],
             "type": "number",
             "minimum": 0,
-            "maxLength": 20,
-            "multipleOf": 0.01
+            "maxLength": 20
           }
         },
         "additionalProperties": false
@@ -1861,6 +1859,50 @@
         "additionalProperties": false
       }
     },
+    "optional_payment_type_exclusion": {
+      "title": "付款方式排除",
+      "description": "额外请求产品的可选支付类型例外",
+      "examples": [
+        "货到付款"
+      ],
+      "type": "array",
+      "minItems": 1,
+      "minUniqueItems": 1,
+      "maxUniqueItems": 2,
+      "selectors": [
+        "marketplace_id"
+      ],
+      "items": {
+        "type": "object",
+        "required": [
+          "value"
+        ],
+        "properties": {
+          "marketplace_id": {
+            "$ref": "#/$defs/marketplace_id"
+          },
+          "value": {
+            "title": "付款方式排除",
+            "description": "额外请求产品的可选支付类型例外",
+            "editable": true,
+            "hidden": false,
+            "examples": [
+              "货到付款"
+            ],
+            "type": "string",
+            "enum": [
+              "cvs",
+              "cash_on_delivery"
+            ],
+            "enumNames": [
+              "不包括便利店付款",
+              "不包括货到付款"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
     "handmade_classification": {
       "title": "手工制作分类",
       "description": "选择最能描述产品生产方式的值",
@@ -1987,7 +2029,7 @@
             ],
             "type": "string",
             "minLength": 0,
-            "maxLength": 700
+            "maxLength": 500
           }
         },
         "additionalProperties": false
@@ -2543,7 +2585,7 @@
           "value": {
             "title": "零件编号",
             "description": "提供零件编号。在许多产品中，此编号与型号相同，但有些制造商会将零件编号与型号区分表示",
-            "editable": false,
+            "editable": true,
             "hidden": false,
             "examples": [
               "RIV001"
@@ -2592,27 +2634,7 @@
               "圆形"
             ],
             "type": "string",
-            "maxUtf8ByteLength": 2000,
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "string",
-                "enum": [
-                  "圆头",
-                  "扁圆头",
-                  "方头",
-                  "矩形"
-                ],
-                "enumNames": [
-                  "圆头",
-                  "扁圆头",
-                  "方头",
-                  "矩形"
-                ]
-              }
-            ]
+            "maxUtf8ByteLength": 2000
           }
         },
         "additionalProperties": false
@@ -2846,6 +2868,50 @@
         "additionalProperties": false
       }
     },
+    "distribution_designation": {
+      "title": "Distribution Designation",
+      "description": "说明产品是否是从非授权分销渠道（例如）平行进口的。",
+      "examples": [
+        "默认为 jp_paralell_import"
+      ],
+      "type": "array",
+      "minItems": 1,
+      "minUniqueItems": 1,
+      "maxUniqueItems": 1,
+      "selectors": [
+        "marketplace_id"
+      ],
+      "items": {
+        "type": "object",
+        "required": [
+          "value"
+        ],
+        "properties": {
+          "marketplace_id": {
+            "$ref": "#/$defs/marketplace_id"
+          },
+          "value": {
+            "title": "Distribution Designation",
+            "description": "说明产品是否是从非授权分销渠道（例如）平行进口的。",
+            "editable": true,
+            "hidden": false,
+            "examples": [
+              "默认为 jp_paralell_import"
+            ],
+            "type": "string",
+            "enum": [
+              "default",
+              "jp_parallel_import"
+            ],
+            "enumNames": [
+              "Default",
+              "JP Parallel Import"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
     "collection_description": {
       "title": "收藏说明",
       "description": "收藏说明",
@@ -2878,6 +2944,38 @@
             "type": "string",
             "maxLength": 110,
             "maxUtf8ByteLength": 100
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "codabar": {
+      "title": "库德巴码",
+      "description": "商品的Codabar属性",
+      "type": "array",
+      "minItems": 1,
+      "minUniqueItems": 1,
+      "maxUniqueItems": 1,
+      "selectors": [
+        "marketplace_id",
+        "value"
+      ],
+      "items": {
+        "type": "object",
+        "required": [
+          "value"
+        ],
+        "properties": {
+          "marketplace_id": {
+            "$ref": "#/$defs/marketplace_id"
+          },
+          "value": {
+            "title": "Codabar",
+            "description": "该属性表示产品的 Codabar",
+            "editable": true,
+            "hidden": false,
+            "type": "string",
+            "maxLength": 159
           }
         },
         "additionalProperties": false
@@ -2920,6 +3018,47 @@
             ],
             "type": "string",
             "maxLength": 4582
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "is_exclusive_product": {
+      "title": "是独家产品",
+      "description": "指定是否仅在亚马逊上提供该产品",
+      "examples": [
+        "是"
+      ],
+      "type": "array",
+      "minItems": 1,
+      "minUniqueItems": 1,
+      "maxUniqueItems": 1,
+      "selectors": [
+        "marketplace_id"
+      ],
+      "items": {
+        "type": "object",
+        "required": [
+          "value"
+        ],
+        "properties": {
+          "marketplace_id": {
+            "$ref": "#/$defs/marketplace_id"
+          },
+          "value": {
+            "title": "是独家产品",
+            "description": "指定是否仅在亚马逊上提供该产品",
+            "editable": false,
+            "hidden": false,
+            "examples": [
+              "是"
+            ],
+            "type": "boolean",
+            "enum": [true, false],
+            "enumNames": [
+              "是",
+              "没有"
+            ]
           }
         },
         "additionalProperties": false
@@ -2997,7 +3136,7 @@
           "unit": {
             "title": "纸张尺寸单位",
             "description": "选择相应的单位",
-            "editable": false,
+            "editable": true,
             "hidden": false,
             "examples": [
               "英寸"
@@ -3059,7 +3198,7 @@
           "value": {
             "title": "纸张尺寸",
             "description": "指明纸张尺寸数值",
-            "editable": false,
+            "editable": true,
             "hidden": false,
             "examples": [
               "8.5 x 11、5 x 7、11 x 17"
@@ -3170,1178 +3309,6 @@
             ],
             "type": "string",
             "maxLength": 561
-          }
-        },
-        "additionalProperties": false
-      }
-    },
-    "language": {
-      "title": "语言",
-      "description": "从有效值列表中选择适当的语言",
-      "examples": [
-        "英国"
-      ],
-      "type": "array",
-      "minItems": 1,
-      "minUniqueItems": 1,
-      "maxUniqueItems": 103,
-      "selectors": [
-        "marketplace_id",
-        "type"
-      ],
-      "items": {
-        "type": "object",
-        "required": [
-          "type",
-          "value"
-        ],
-        "properties": {
-          "type": {
-            "title": "语言类型",
-            "description": "选择语言类型",
-            "editable": true,
-            "hidden": false,
-            "examples": [
-              "原产地"
-            ],
-            "type": "string",
-            "enum": [
-              "published",
-              "spoken",
-              "subtitles_for_hearing_impaired",
-              "dictionary",
-              "subtitled",
-              "parallel",
-              "ingredients",
-              "manual",
-              "unknown",
-              "menu",
-              "subtitles_for_dubbed",
-              "translation",
-              "original",
-              "dubbed",
-              "audio_description"
-            ],
-            "enumNames": [
-              "发布",
-              "口述",
-              "听障人士专用字幕",
-              "字典",
-              "字幕语言",
-              "并行",
-              "成分",
-              "手动",
-              "未知",
-              "菜单",
-              "译制片字幕",
-              "译文语种",
-              "语言",
-              "配音语言",
-              "音频描述"
-            ]
-          },
-          "value": {
-            "title": "语言",
-            "description": "从有效值列表中选择适当的语言",
-            "editable": true,
-            "hidden": false,
-            "examples": [
-              "英国"
-            ],
-            "type": "string",
-            "enum": [
-              "abkhazian",
-              "achinese",
-              "acoli",
-              "adangme",
-              "afar",
-              "afghan_pashtu",
-              "afrihili",
-              "afro_asiatic_languages",
-              "ainu",
-              "akan",
-              "akkadian",
-              "aleut",
-              "algonquian_languages",
-              "altaic_languages",
-              "american_sign_language",
-              "ancient_greek",
-              "angika",
-              "apache_languages",
-              "aragonese",
-              "aramaic",
-              "arapaho",
-              "arawak",
-              "aromanian",
-              "artificial_languages",
-              "assyrian",
-              "asturian",
-              "athapascan_languages",
-              "australian_languages",
-              "austronesian",
-              "avaric",
-              "avestan",
-              "awadhi",
-              "aymara",
-              "azerbaijani",
-              "bahasa",
-              "balinese",
-              "baltic_languages",
-              "baluchi",
-              "bamileke_languages",
-              "banda_languages",
-              "bantu",
-              "basa",
-              "bashkir",
-              "batak",
-              "beja",
-              "belarusian",
-              "belgian",
-              "bemba",
-              "bhojpuri",
-              "bhutani",
-              "bihari",
-              "bikol",
-              "bini",
-              "bislama",
-              "blin",
-              "bliss",
-              "bodo",
-              "bosnian",
-              "braj",
-              "bribri",
-              "buginese",
-              "burmese",
-              "byelorussian",
-              "caddo",
-              "cambodian",
-              "caucasian_languages",
-              "cebuano",
-              "celtic_languages",
-              "central_american_indian_languages",
-              "chagatai",
-              "chamic_languages",
-              "chamorro",
-              "chechen",
-              "cherokee",
-              "chhattisgarhi",
-              "chibcha",
-              "chichewa",
-              "chinook_jargon",
-              "chipewyan",
-              "chiricahua",
-              "choctaw",
-              "chuukese",
-              "chuvash",
-              "classical_syriac",
-              "coptic",
-              "cree",
-              "creek",
-              "cushitic_languages",
-              "dakota",
-              "dari",
-              "delaware",
-              "dhivehi",
-              "dinka",
-              "dogri",
-              "dogrib",
-              "dravidian_languages",
-              "duala",
-              "dzongkha",
-              "efik",
-              "egyptian",
-              "ekajuk",
-              "elamite",
-              "erzya",
-              "ewe",
-              "ewondo",
-              "fang",
-              "fanti",
-              "faroese",
-              "fiji",
-              "finno_ugrian",
-              "fon",
-              "french_creole",
-              "friulian",
-              "fulah",
-              "ga",
-              "gahrwali",
-              "galibi_carib",
-              "galician",
-              "gallegan",
-              "ganda",
-              "garo",
-              "gayo",
-              "gbaya",
-              "geez",
-              "germanic_languages",
-              "gilbertese",
-              "gondi",
-              "gorontalo",
-              "gothic",
-              "grebo",
-              "greenlandic",
-              "guarani",
-              "gwichin",
-              "haida",
-              "haitian",
-              "haryanvi",
-              "herero",
-              "hiligaynon",
-              "himachali_languages",
-              "hiri_motu",
-              "hittite",
-              "hokkien",
-              "hupa",
-              "iban",
-              "ido",
-              "igbo",
-              "ijo_languages",
-              "iloko",
-              "inari_sami",
-              "indic",
-              "interlingua",
-              "interlingue",
-              "inupiak",
-              "iranian_languages",
-              "iroquoian_languages",
-              "javanese",
-              "judeo_arabic",
-              "judeo_persian",
-              "jula",
-              "kabardian",
-              "kabyle",
-              "kachin",
-              "kamba",
-              "kannada",
-              "kanuri",
-              "kara_kalpak",
-              "karelian",
-              "karen_languages",
-              "kashmiri",
-              "kawi",
-              "khasi",
-              "khoisan_languages",
-              "khotanese",
-              "kikuyu",
-              "kimbundu",
-              "kinyarwanda",
-              "kirghiz",
-              "kirundi",
-              "kokborok",
-              "komi",
-              "kongo",
-              "konkani",
-              "kosraean",
-              "kpelle",
-              "kru_languages",
-              "kuanyama",
-              "kubo",
-              "kumaoni",
-              "kumyk",
-              "kurukh",
-              "kutenai",
-              "lahnda",
-              "lamba",
-              "land_dayak_languages",
-              "latin_spanish",
-              "latvian",
-              "lezghian",
-              "limburgan",
-              "lingala",
-              "low_german",
-              "lozi",
-              "luba_katanga",
-              "luba_lulua",
-              "luiseno",
-              "lule_sami",
-              "lunda",
-              "luo",
-              "lushai",
-              "madurese",
-              "magahi",
-              "maharati",
-              "maithili",
-              "makasar",
-              "manchu",
-              "mandar",
-              "mandingo",
-              "manipuri",
-              "manobo_languages",
-              "mapudungun",
-              "marathi",
-              "mari",
-              "marshallese",
-              "marwari",
-              "masai",
-              "mayan",
-              "micmac",
-              "middle_dutch",
-              "middle_french",
-              "middle_high_german",
-              "middle_irish",
-              "minangkabau",
-              "mizo",
-              "mohawk",
-              "moldavian",
-              "mon_khmer_languages",
-              "mossi",
-              "munda_languages",
-              "nahuatl",
-              "nauru",
-              "ndonga",
-              "neapolitan",
-              "nepal_bhasa",
-              "nepali",
-              "nias",
-              "niger_kordofanian_languages",
-              "nilo_saharan_languages",
-              "niuean",
-              "nko",
-              "none",
-              "north_ndebele",
-              "north_american_indian_languages",
-              "northern_sami",
-              "nubian_languages",
-              "nyamwezi",
-              "nyankole",
-              "nyoro",
-              "nzima",
-              "occitan",
-              "ojibwa",
-              "old_french",
-              "old_high_german",
-              "old_irish",
-              "old_norse",
-              "old_persian",
-              "old_provencal",
-              "old_slavonic",
-              "oriya",
-              "oromo",
-              "osage",
-              "ossetian",
-              "otomian_languages",
-              "ottoman_turkish",
-              "pahlavi",
-              "palauan",
-              "pali",
-              "pampanga",
-              "pangasinan",
-              "papiamento",
-              "papuan_languages",
-              "pashto",
-              "pedi",
-              "philippine_languages",
-              "phoenician",
-              "pidgin_english",
-              "pohnpeian",
-              "portuguese_brazilian",
-              "portuguese_creole",
-              "prakrit_languages",
-              "punjabi",
-              "quechua",
-              "rajasthani",
-              "rapanui",
-              "rarotongan",
-              "salishan_languages",
-              "sami",
-              "samoan",
-              "sandawe",
-              "sangho",
-              "santali",
-              "sardinian",
-              "sasak",
-              "scandinavian_languages",
-              "selkup",
-              "semitic_languages",
-              "serer",
-              "sesotho",
-              "setswana",
-              "shan",
-              "shona",
-              "sidamo",
-              "siksika",
-              "sindhi",
-              "sinhalese",
-              "sino_tibetan",
-              "siouan_languages",
-              "siswati",
-              "skolt_sami",
-              "slave_athapascan",
-              "slovakian",
-              "sogdian",
-              "songhai_languages",
-              "soninke",
-              "sorbian_languages",
-              "south_american_indian",
-              "south_ndebele",
-              "southern_altai",
-              "southern_sami",
-              "southern_sotho",
-              "sranan_tongo",
-              "sukuma",
-              "sundanese",
-              "susu",
-              "syriac",
-              "tahitian",
-              "tai_languages",
-              "tajik",
-              "tamashek",
-              "tatar",
-              "telugu",
-              "tereno",
-              "tetum",
-              "tigre",
-              "tigrinya",
-              "timne",
-              "tiv",
-              "tlingit",
-              "tok_pisin",
-              "tokelau",
-              "tonga",
-              "tonga_nyasa",
-              "tsimshian",
-              "tsonga",
-              "tulu",
-              "tumbuka",
-              "tupi_languages",
-              "turkmen",
-              "tuvalu",
-              "tuvinian",
-              "twi",
-              "tzeltal",
-              "ugaritic",
-              "uighur",
-              "ukranian",
-              "umbundu",
-              "upper_sorbian",
-              "uzbek",
-              "vai",
-              "valencian",
-              "venda",
-              "volapuk",
-              "votic",
-              "wakashan_languages",
-              "walamo",
-              "walloon",
-              "waray",
-              "washo",
-              "yakut",
-              "yao",
-              "yapese",
-              "yoruba",
-              "yugoslavian",
-              "yupik_languages",
-              "zande_languages",
-              "zapotec",
-              "zaza",
-              "zenaga",
-              "zhuang",
-              "zuni",
-              "lower_sorbian",
-              "unqualified",
-              "esperanto",
-              "eastern_frisian",
-              "middle_english",
-              "taiwanese_chinese",
-              "sichuan_yi",
-              "chinese",
-              "danish",
-              "ukrainian",
-              "urdu",
-              "udmurt",
-              "norwegian_bokmal",
-              "armenian",
-              "flemish",
-              "inupiaq",
-              "russian",
-              "bulgarian",
-              "pig_latin",
-              "klingon",
-              "croatian",
-              "creole",
-              "crimean_tatar",
-              "icelandic",
-              "cornish",
-              "adygei",
-              "catalan",
-              "hungarian",
-              "northern_frisian",
-              "afrikaans",
-              "kalmyk",
-              "cayuga",
-              "karachay_balkar",
-              "castillian",
-              "kashubian",
-              "luxembourgish",
-              "ingush",
-              "hindi",
-              "indonesian",
-              "indo_european",
-              "gujarati",
-              "old_english",
-              "kazakh",
-              "inuktitut",
-              "turkish",
-              "serbo-croatian",
-              "serbian",
-              "hawaiian",
-              "cheyenne",
-              "multiple_languages",
-              "multilingual",
-              "welsh",
-              "bengali",
-              "nigerian_pidgin",
-              "classical_newari",
-              "basque",
-              "breton",
-              "buryat",
-              "hebrew",
-              "greek",
-              "kurdish",
-              "frisian",
-              "german",
-              "italian",
-              "yiddish",
-              "sign_language",
-              "latin",
-              "lapp",
-              "ladino",
-              "norwegian",
-              "norwegian_nynorsk",
-              "czech",
-              "samaritan",
-              "scandanavian_languages",
-              "slavic",
-              "slovak",
-              "slovene",
-              "swahili",
-              "japanese",
-              "provencal",
-              "unknown",
-              "berber",
-              "gullah",
-              "kalaallisut",
-              "georgian",
-              "sanskrit",
-              "maori",
-              "mandarin_chinese",
-              "wolof",
-              "french",
-              "french_canadian",
-              "polish",
-              "farsi",
-              "persian",
-              "thai",
-              "tamil",
-              "irish",
-              "inuktitun",
-              "estonian",
-              "bambara",
-              "swedish",
-              "swiss_german",
-              "zulu",
-              "xhosa",
-              "corsican",
-              "lithuanian",
-              "simplified_chinese",
-              "mirandese",
-              "cantonese_chinese",
-              "somali",
-              "traditional_chinese",
-              "navaho",
-              "romansh",
-              "romansch",
-              "romanian",
-              "romany",
-              "romance",
-              "lao",
-              "gibberish",
-              "finnish",
-              "scots_gaelic",
-              "gaelic_scots",
-              "scots",
-              "sumerian",
-              "hmong",
-              "english",
-              "dutch",
-              "filipino",
-              "tagalog",
-              "portuguese",
-              "mongolian",
-              "mongo",
-              "tibetan",
-              "spanish",
-              "sicilian",
-              "moksha",
-              "hausa",
-              "vietnamese",
-              "dargwa",
-              "lojban",
-              "nogai",
-              "mende",
-              "amharic",
-              "albanian",
-              "alsatian",
-              "arabic",
-              "assamese",
-              "korean",
-              "macedonian",
-              "malagasy",
-              "manx",
-              "malayalam",
-              "malay",
-              "maltese",
-              "khmer"
-            ],
-            "enumNames": [
-              "Abkhazian",
-              "Achinese",
-              "Acoli",
-              "Adangme",
-              "Afar",
-              "Afghan Pashtu",
-              "Afrihili",
-              "Afro-Asiatic Languages",
-              "Ainu",
-              "Akan",
-              "Akkadian",
-              "Aleut",
-              "Algonquian Languages",
-              "Altaic Languages",
-              "American Sign Language",
-              "Ancient Greek",
-              "Angika",
-              "Apache Languages",
-              "Aragonese",
-              "Aramaic",
-              "Arapaho",
-              "Arawak",
-              "Aromanian",
-              "Artificial Languages",
-              "Assyrian",
-              "Asturian",
-              "Athapascan Languages",
-              "Australian Languages",
-              "Austronesian",
-              "Avaric",
-              "Avestan",
-              "Awadhi",
-              "Aymara",
-              "Azerbaijani",
-              "Bahasa",
-              "Balinese",
-              "Baltic Languages",
-              "Baluchi",
-              "Bamileke Languages",
-              "Banda Languages",
-              "Bantu",
-              "Basa",
-              "Bashkir",
-              "Batak",
-              "Beja",
-              "Belarusian",
-              "Belgian",
-              "Bemba",
-              "Bhojpuri",
-              "Bhutani",
-              "Bihari",
-              "Bikol",
-              "Bini",
-              "Bislama",
-              "Blin",
-              "Bliss",
-              "Bodo",
-              "Bosnian",
-              "Braj",
-              "Bribri",
-              "Buginese",
-              "Burmese",
-              "Byelorussian",
-              "Caddo",
-              "Cambodian",
-              "Caucasian Languages",
-              "Cebuano",
-              "Celtic Languages",
-              "Central American Indian Languages",
-              "Chagatai",
-              "Chamic Languages",
-              "Chamorro",
-              "Chechen",
-              "Cherokee",
-              "Chhattisgarhi",
-              "Chibcha",
-              "Chichewa",
-              "Chinook Jargon",
-              "Chipewyan",
-              "Chiricahua",
-              "Choctaw",
-              "Chuukese",
-              "Chuvash",
-              "Classical Syriac",
-              "Coptic",
-              "Cree",
-              "Creek",
-              "Cushitic Languages",
-              "Dakota",
-              "Dari",
-              "Delaware",
-              "Dhivehi",
-              "Dinka",
-              "Dogri",
-              "Dogrib",
-              "Dravidian Languages",
-              "Duala",
-              "Dzongkha",
-              "Efik",
-              "Egyptian",
-              "Ekajuk",
-              "Elamite",
-              "Erzya",
-              "Ewe",
-              "Ewondo",
-              "Fang",
-              "Fanti",
-              "Faroese",
-              "Fiji",
-              "Finno-Ugrian",
-              "Fon",
-              "French Creole",
-              "Friulian",
-              "Fulah",
-              "Ga",
-              "Gahrwali",
-              "Galibi-Carib",
-              "Galician",
-              "Gallegan",
-              "Ganda",
-              "Garo",
-              "Gayo",
-              "Gbaya",
-              "Geez",
-              "Germanic Languages",
-              "Gilbertese",
-              "Gondi",
-              "Gorontalo",
-              "Gothic",
-              "Grebo",
-              "Greenlandic",
-              "Guarani",
-              "Gwich'In",
-              "Haida",
-              "Haitian",
-              "Haryanvi",
-              "Herero",
-              "Hiligaynon",
-              "Himachali Languages",
-              "Hiri-Motu",
-              "Hittite",
-              "Hokkien",
-              "Hupa",
-              "Iban",
-              "Ido",
-              "Igbo",
-              "Ijo Languages",
-              "Iloko",
-              "Inari-Sami",
-              "Indic",
-              "Interlingua",
-              "Interlingue",
-              "Inupiak",
-              "Iranian Languages",
-              "Iroquoian Languages",
-              "Javanese",
-              "Judeo-Arabic",
-              "Judeo-Persian",
-              "Jula",
-              "Kabardian",
-              "Kabyle",
-              "Kachin",
-              "Kamba",
-              "Kannada",
-              "Kanuri",
-              "Kara-Kalpak",
-              "Karelian",
-              "Karen Languages",
-              "Kashmiri",
-              "Kawi",
-              "Khasi",
-              "Khoisan Languages",
-              "Khotanese",
-              "Kikuyu",
-              "Kimbundu",
-              "Kinyarwanda",
-              "Kirghiz",
-              "Kirundi",
-              "Kokborok",
-              "Komi",
-              "Kongo",
-              "Konkani",
-              "Kosraean",
-              "Kpelle",
-              "Kru Languages",
-              "Kuanyama",
-              "Kubo",
-              "Kumaoni",
-              "Kumyk",
-              "Kurukh",
-              "Kutenai",
-              "Lahnda",
-              "Lamba",
-              "Land-Dayak Languages",
-              "Latin Spanish",
-              "Latvian",
-              "Lezghian",
-              "Limburgan",
-              "Lingala",
-              "Low German",
-              "Lozi",
-              "Luba-Katanga",
-              "Luba-Lulua",
-              "Luiseno",
-              "Lule-Sami",
-              "Lunda",
-              "Luo",
-              "Lushai",
-              "Madurese",
-              "Magahi",
-              "Maharati",
-              "Maithili",
-              "Makasar",
-              "Manchu",
-              "Mandar",
-              "Mandingo",
-              "Manipuri",
-              "Manobo Languages",
-              "Mapudungun",
-              "Marathi",
-              "Mari",
-              "Marshallese",
-              "Marwari",
-              "Masai",
-              "Mayan",
-              "Micmac",
-              "Middle Dutch",
-              "Middle French",
-              "Middle High German",
-              "Middle Irish",
-              "Minangkabau",
-              "Mizo",
-              "Mohawk",
-              "Moldavian",
-              "Mon-Khmer Languages",
-              "Mossi",
-              "Munda Languages",
-              "Nahuatl",
-              "Nauru",
-              "Ndonga",
-              "Neapolitan",
-              "Nepal (Bhasa)",
-              "Nepali",
-              "Nias",
-              "Niger-Kordofanian Languages",
-              "Nilo-Saharan Languages",
-              "Niuean",
-              "Nko",
-              "None",
-              "North Ndebele",
-              "North-American Indian Languages",
-              "Northern Sami",
-              "Nubian Languages",
-              "Nyamwezi",
-              "Nyankole",
-              "Nyoro",
-              "Nzima",
-              "Occitan",
-              "Ojibwa",
-              "Old French",
-              "Old High German",
-              "Old Irish",
-              "Old Norse",
-              "Old Persian",
-              "Old Provencal",
-              "Old Slavonic",
-              "Oriya",
-              "Oromo",
-              "Osage",
-              "Ossetian",
-              "Otomian Languages",
-              "Ottoman Turkish",
-              "Pahlavi",
-              "Palauan",
-              "Pali",
-              "Pampanga",
-              "Pangasinan",
-              "Papiamento",
-              "Papuan Languages",
-              "Pashto",
-              "Pedi",
-              "Philippine Languages",
-              "Phoenician",
-              "Pidgin English",
-              "Pohnpeian",
-              "Portuguese Brazilian",
-              "Portuguese Creole",
-              "Prakrit Languages",
-              "Punjabi",
-              "Quechua",
-              "Rajasthani",
-              "Rapanui",
-              "Rarotongan",
-              "Salishan Languages",
-              "Sami",
-              "Samoan",
-              "Sandawe",
-              "Sangho",
-              "Santali",
-              "Sardinian",
-              "Sasak",
-              "Scandinavian Languages",
-              "Selkup",
-              "Semitic Languages",
-              "Serer",
-              "Sesotho",
-              "Setswana",
-              "Shan",
-              "Shona",
-              "Sidamo",
-              "Siksika",
-              "Sindhi",
-              "Sinhalese",
-              "Sino Tibetan",
-              "Siouan Languages",
-              "Siswati",
-              "Skolt-Sami",
-              "Slave (Athapascan)",
-              "Slovakian",
-              "Sogdian",
-              "Songhai Languages",
-              "Soninke",
-              "Sorbian Languages",
-              "South American Indian",
-              "South Ndebele",
-              "Southern Altai",
-              "Southern Sami",
-              "Southern Sotho",
-              "Sranan-Tongo",
-              "Sukuma",
-              "Sundanese",
-              "Susu",
-              "Syriac",
-              "Tahitian",
-              "Tai Languages",
-              "Tajik",
-              "Tamashek",
-              "Tatar",
-              "Telugu",
-              "Tereno",
-              "Tetum",
-              "Tigre",
-              "Tigrinya",
-              "Timne",
-              "Tiv",
-              "Tlingit",
-              "Tok-Pisin",
-              "Tokelau",
-              "Tonga",
-              "Tonga (Nyasa)",
-              "Tsimshian",
-              "Tsonga",
-              "Tulu",
-              "Tumbuka",
-              "Tupi Languages",
-              "Turkmen",
-              "Tuvalu",
-              "Tuvinian",
-              "Twi",
-              "Tzeltal",
-              "Ugaritic",
-              "Uighur",
-              "Ukranian",
-              "Umbundu",
-              "Upper Sorbian",
-              "Uzbek",
-              "Vai",
-              "Valencian",
-              "Venda",
-              "Volapuk",
-              "Votic",
-              "Wakashan Languages",
-              "Walamo",
-              "Walloon",
-              "Waray",
-              "Washo",
-              "Yakut",
-              "Yao",
-              "Yapese",
-              "Yoruba",
-              "Yugoslavian",
-              "Yupik Languages",
-              "Zande Languages",
-              "Zapotec",
-              "Zaza",
-              "Zenaga",
-              "Zhuang",
-              "Zuni",
-              "下索布语",
-              "不合格",
-              "世界语",
-              "东弗里西亚语",
-              "中古英语",
-              "中国台湾繁体中文",
-              "中国四川方言",
-              "中文",
-              "丹麦语",
-              "乌克兰语",
-              "乌尔都语",
-              "乌德穆尔特语",
-              "书面挪威语",
-              "亚美尼亚语",
-              "佛兰芒语",
-              "依努皮亚",
-              "俄罗斯语",
-              "保加利亚语",
-              "儿童黑话",
-              "克林贡语",
-              "克罗地亚语",
-              "克里奥尔语",
-              "克里米亚_塔塔尔语",
-              "冰岛语",
-              "凯尔特语",
-              "切尔克斯语",
-              "加泰罗尼亚语",
-              "匈牙利语",
-              "北弗里西亚语",
-              "南非荷兰语",
-              "卡尔梅克",
-              "卡尤加语",
-              "卡拉恰伊-巴尔卡尔语",
-              "卡斯提尔语",
-              "卡舒比安",
-              "卢森堡语",
-              "印古什",
-              "印地语",
-              "印度尼西亚语",
-              "印欧语系",
-              "古加拉特",
-              "古英语",
-              "哈萨克语",
-              "因纽特语",
-              "土耳其语",
-              "塞尔维亚克罗地亚语",
-              "塞尔维亚语",
-              "夏威夷语",
-              "夏延语",
-              "多种语言",
-              "多语言",
-              "威尔士语",
-              "孟加拉语",
-              "尼日利亚皮钦语",
-              "尼瓦尔语",
-              "巴斯克语",
-              "布列塔尼语",
-              "布里亚特语",
-              "希伯来语",
-              "希腊语",
-              "库尔德语",
-              "弗里西亚语",
-              "德语",
-              "意大利语",
-              "意第绪语",
-              "手语",
-              "拉丁语",
-              "拉普语",
-              "拉迪诺语",
-              "挪威语",
-              "挪威语(尼诺斯克语)",
-              "捷克语",
-              "撒玛利亚语",
-              "斯堪的那维亚",
-              "斯拉夫语",
-              "斯洛伐克语",
-              "斯洛文尼亚语",
-              "斯瓦希里语",
-              "日语",
-              "普罗旺斯语",
-              "未知",
-              "柏柏尔语",
-              "格勒",
-              "格陵兰语",
-              "格鲁吉亚",
-              "梵语",
-              "毛利语",
-              "汉语普通话",
-              "沃洛夫语",
-              "法语",
-              "法语_加拿大",
-              "波兰语",
-              "波斯语",
-              "波斯语",
-              "泰国语",
-              "泰米尔语",
-              "爱尔兰语",
-              "爱斯基摩-阿留申语",
-              "爱沙尼亚语",
-              "班巴拉语",
-              "瑞典语",
-              "瑞士_德语",
-              "祖鲁语",
-              "科萨语",
-              "科西嘉语",
-              "立陶宛语",
-              "简体中文",
-              "米兰德泽语",
-              "粤语",
-              "索马里语",
-              "繁体中文",
-              "纳瓦霍",
-              "罗曼什语",
-              "罗曼什语",
-              "罗马尼亚语",
-              "罗马尼语",
-              "罗马语",
-              "老挝语",
-              "胡言乱语",
-              "芬兰语",
-              "苏格兰盖尔语",
-              "苏格兰盖尔语",
-              "苏格兰语",
-              "苏美尔语",
-              "苗族",
-              "英语",
-              "荷兰语",
-              "菲律宾",
-              "菲律宾语",
-              "葡萄牙语",
-              "蒙古语",
-              "蒙戈",
-              "藏语",
-              "西班牙语",
-              "西西里语",
-              "解脱",
-              "豪萨语",
-              "越南语",
-              "达尔格瓦语",
-              "逻辑语",
-              "那海汗",
-              "门德语",
-              "阿姆哈拉语",
-              "阿尔巴尼亚语",
-              "阿尔萨斯语",
-              "阿拉伯语",
-              "阿萨姆语",
-              "韩国语",
-              "马其顿语",
-              "马尔加什语",
-              "马恩岛语",
-              "马来亚语",
-              "马来语",
-              "马耳他语",
-              "高棉语"
-            ]
-          },
-          "marketplace_id": {
-            "$ref": "#/$defs/marketplace_id"
           }
         },
         "additionalProperties": false
@@ -5179,154 +4146,6 @@
         "additionalProperties": false
       }
     },
-    "power_plug_type": {
-      "title": "电源插头",
-      "description": "列明商品所拥有的或支持的电源插头的类型",
-      "examples": [
-        "A型 - 2脚（北美）"
-      ],
-      "type": "array",
-      "minItems": 1,
-      "minUniqueItems": 1,
-      "maxUniqueItems": 4,
-      "selectors": [
-        "marketplace_id"
-      ],
-      "items": {
-        "type": "object",
-        "required": [
-          "value"
-        ],
-        "properties": {
-          "marketplace_id": {
-            "$ref": "#/$defs/marketplace_id"
-          },
-          "value": {
-            "title": "电源插头",
-            "description": "列明商品所拥有的或支持的电源插头的类型",
-            "editable": false,
-            "hidden": false,
-            "examples": [
-              "A型 - 2脚（北美）"
-            ],
-            "type": "string",
-            "enum": [
-              "16_a_5_pin",
-              "32_a_5_pin",
-              "type_cee716_europlug",
-              "type_bs_2pin_uk",
-              "type_a_2pin_jp",
-              "type_a_2pin_na_jp",
-              "type_a_2pin_na",
-              "type_b_3pin_jp",
-              "type_b_3pin_na_jp",
-              "type_b_3pin_na",
-              "type_c_2pin_eu",
-              "type_cef_2pin_eu",
-              "type_d_3pin_in",
-              "type_e_2pin_fr",
-              "type_ef_2pin_eu",
-              "type_f_2pin_de_es",
-              "type_f_2pin_de",
-              "type_g_3pin_uk",
-              "type_h_3pin_il",
-              "type_i_3pin_au_cn",
-              "type_i_3pin_au",
-              "type_j_3pin_ch",
-              "type_k_3pin_dk",
-              "type_l_3pin_it",
-              "type_m_3pin_za",
-              "type_n_3pin_br",
-              "no_plug"
-            ],
-            "enumNames": [
-              "16A 5 Pin",
-              "32A 5 Pin",
-              "CEE 7/16 Europlug",
-              "Moulded 2-pin BS 4573 UK Shaver plug",
-              "Type A - 2 pin (Japanese)",
-              "Type A - 2 pin (North American & Japanese)",
-              "Type A - 2 pin (North American)",
-              "Type B - 3 pin (Japanese)",
-              "Type B - 3 pin (North American & Japanese)",
-              "Type B - 3 pin (North American)",
-              "Type C",
-              "Type C/EF - 2 pin (Europlug/FR-DE Hybrid)",
-              "Type D",
-              "Type E - 2 pin (French)",
-              "Type E / F - 2 pin (EU Hybrid)",
-              "Type F - 2 pin (German & Spanish)",
-              "Type F - 2 pin (German)",
-              "Type G",
-              "Type H",
-              "Type I - 3 pin (Australian & Chinese)",
-              "Type I - 3 pin (Australian)",
-              "Type J",
-              "Type K",
-              "Type L",
-              "Type M",
-              "Type N",
-              "無插件"
-            ]
-          }
-        },
-        "additionalProperties": false
-      }
-    },
-    "accepted_voltage_frequency": {
-      "title": "可接受的电压频率",
-      "description": "选择产品能够支持的最大可接受电压和相关频率",
-      "examples": [
-        "100 至120 伏特和 50 赫兹"
-      ],
-      "type": "array",
-      "minItems": 1,
-      "minUniqueItems": 1,
-      "maxUniqueItems": 1,
-      "selectors": [
-        "marketplace_id"
-      ],
-      "items": {
-        "type": "object",
-        "required": [
-          "value"
-        ],
-        "properties": {
-          "marketplace_id": {
-            "$ref": "#/$defs/marketplace_id"
-          },
-          "value": {
-            "title": "可接受的电压频率",
-            "description": "选择产品能够支持的最大可接受电压和相关频率",
-            "editable": false,
-            "hidden": false,
-            "examples": [
-              "100 至120 伏特和 50 赫兹"
-            ],
-            "type": "string",
-            "enum": [
-              "100v_120v_50hz",
-              "100v_120v_60hz",
-              "100v_240v_50hz",
-              "100v_240v_50hz_60hz",
-              "100v_240v_60hz",
-              "220v_240v_50hz",
-              "220v_240v_60hz"
-            ],
-            "enumNames": [
-              "100 至120 伏特和 50 赫兹",
-              "100 至120 伏特和 60 赫兹",
-              "100 至240 伏特和 50 赫兹",
-              "100 至240 伏特和 50 赫兹到 60 赫兹",
-              "100 至240 伏特和 60 赫兹",
-              "220 至240 伏特和 50 赫兹",
-              "220 至240 伏特和 60 赫兹"
-            ]
-          }
-        },
-        "additionalProperties": false
-      }
-    },
     "operating_system": {
       "title": "操作系统",
       "description": "指定产品的操作系统",
@@ -5456,207 +4275,23 @@
               {
                 "type": "string",
                 "enum": [
-                  "丛林",
-                  "东方",
                   "中圆点花",
-                  "人字形",
                   "佩斯利花纹",
-                  "几何图形",
-                  "刺绣",
-                  "动物",
-                  "印刷品",
-                  "大格纹图案",
-                  "小格纹图案",
                   "拼接图案",
                   "摩尔纹",
-                  "斯堪的纳维亚",
                   "方格",
-                  "条纹",
-                  "热带",
-                  "空格",
-                  "纯色",
-                  "自然",
-                  "花朵",
-                  "苏格兰"
+                  "条纹"
                 ],
                 "enumNames": [
-                  "丛林",
-                  "东方",
                   "中圆点花",
-                  "人字形",
                   "佩斯利花纹",
-                  "几何图形",
-                  "刺绣",
-                  "动物",
-                  "印刷品",
-                  "大格纹图案",
-                  "小格纹图案",
                   "拼接图案",
                   "摩尔纹",
-                  "斯堪的纳维亚",
                   "方格",
-                  "条纹",
-                  "热带",
-                  "空格",
-                  "纯色",
-                  "自然",
-                  "花朵",
-                  "苏格兰"
+                  "条纹"
                 ]
               }
             ]
-          }
-        },
-        "additionalProperties": false
-      }
-    },
-    "is_expiration_dated_product": {
-      "title": "产品是否过期",
-      "description": "如果产品满足以下条件之一，请选择“是”：1.有打印的有效期；2.是供人类或动物使用的外用品或消耗品；3.有建议的保质期。否则，选择“否”。",
-      "examples": [
-        "是，没有"
-      ],
-      "type": "array",
-      "minItems": 1,
-      "minUniqueItems": 1,
-      "maxUniqueItems": 1,
-      "selectors": [
-        "marketplace_id"
-      ],
-      "items": {
-        "type": "object",
-        "required": [
-          "value"
-        ],
-        "properties": {
-          "marketplace_id": {
-            "$ref": "#/$defs/marketplace_id"
-          },
-          "value": {
-            "title": "产品是否过期",
-            "description": "提供产品是否具有有效期",
-            "editable": true,
-            "hidden": false,
-            "examples": [
-              "是，没有"
-            ],
-            "type": "boolean",
-            "enum": [true, false],
-            "enumNames": [
-              "是",
-              "没有"
-            ]
-          }
-        },
-        "additionalProperties": false
-      }
-    },
-    "product_expiration_type": {
-      "title": "产品保质期类型",
-      "description": "说明商品的到期类型。到期类型指明如何或从何时开始确定商品的到期时间。",
-      "examples": [
-        "包装到期、未到期"
-      ],
-      "type": "array",
-      "minItems": 1,
-      "minUniqueItems": 1,
-      "maxUniqueItems": 1,
-      "selectors": [
-        "marketplace_id",
-        "language_tag"
-      ],
-      "items": {
-        "type": "object",
-        "required": [
-          "language_tag",
-          "value"
-        ],
-        "properties": {
-          "language_tag": {
-            "$ref": "#/$defs/language_tag"
-          },
-          "marketplace_id": {
-            "$ref": "#/$defs/marketplace_id"
-          },
-          "value": {
-            "title": "产品保质期类型",
-            "description": "说明商品的到期类型。到期类型指明如何或从何时开始确定商品的到期时间。",
-            "editable": true,
-            "hidden": false,
-            "examples": [
-              "需要保质期、货架期"
-            ],
-            "type": "string",
-            "enum": [
-              "Does Not Expire",
-              "Expiration Date Required",
-              "Expiration On Package",
-              "Production Date Required",
-              "Shelf Life"
-            ],
-            "enumNames": [
-              "Does Not Expire",
-              "Expiration Date Required",
-              "Expiration On Package",
-              "Production Date Required",
-              "Shelf Life"
-            ],
-            "maxLength": 555
-          }
-        },
-        "additionalProperties": false
-      }
-    },
-    "fc_shelf_life": {
-      "title": "营运中心保质期",
-      "description": "说明商品在到期前可以存放的总天数。配送技术要求该值以天为单位。",
-      "examples": [
-        "180 天、365 天"
-      ],
-      "type": "array",
-      "minItems": 1,
-      "minUniqueItems": 1,
-      "maxUniqueItems": 1,
-      "selectors": [
-        "marketplace_id"
-      ],
-      "items": {
-        "type": "object",
-        "required": [
-          "unit",
-          "value"
-        ],
-        "properties": {
-          "value": {
-            "title": "营运中心保质期",
-            "description": "说明商品在到期前可以存放的总天数。配送技术要求该值以天为单位。",
-            "editable": true,
-            "hidden": false,
-            "examples": [
-              "180、365"
-            ],
-            "type": "number",
-            "minimum": 0,
-            "maxLength": 5000
-          },
-          "unit": {
-            "title": "营运中心保质期单位",
-            "description": "说明商品在到期前可以存放的总天数。配送技术要求该值以天为单位。",
-            "editable": true,
-            "hidden": false,
-            "examples": [
-              "天数"
-            ],
-            "type": "string",
-            "enum": [
-              "days"
-            ],
-            "enumNames": [
-              "日"
-            ]
-          },
-          "marketplace_id": {
-            "$ref": "#/$defs/marketplace_id"
           }
         },
         "additionalProperties": false
@@ -9541,47 +8176,6 @@
         "additionalProperties": false
       }
     },
-    "is_fragile": {
-      "title": "易碎商品？",
-      "description": "为玻璃制品或易碎品？",
-      "examples": [
-        "是，没有"
-      ],
-      "type": "array",
-      "minItems": 1,
-      "minUniqueItems": 1,
-      "maxUniqueItems": 1,
-      "selectors": [
-        "marketplace_id"
-      ],
-      "items": {
-        "type": "object",
-        "required": [
-          "value"
-        ],
-        "properties": {
-          "marketplace_id": {
-            "$ref": "#/$defs/marketplace_id"
-          },
-          "value": {
-            "title": "易碎商品？",
-            "description": "为玻璃制品或易碎品？",
-            "editable": true,
-            "hidden": false,
-            "examples": [
-              "是，没有"
-            ],
-            "type": "boolean",
-            "enum": [true, false],
-            "enumNames": [
-              "是",
-              "没有"
-            ]
-          }
-        },
-        "additionalProperties": false
-      }
-    },
     "scent": {
       "title": "香味",
       "description": "如果您的商品按照不同香型被区分为某父商品的子商品，请使用该输入项说明该子商品的香型。",
@@ -12757,119 +11351,6 @@
         "additionalProperties": false
       }
     },
-    "ec_medical_device_sales_channel": {
-      "title": "医疗器械销售渠道",
-      "description": "请提供产品所需的销售渠道。此销售渠道取决于欧盟委员会医疗器械法规 [MDR] 或体外诊断医疗器械法规 [IVDR] 是否将产品视为医疗器械。",
-      "examples": [
-        "非处方药零售"
-      ],
-      "type": "array",
-      "minItems": 1,
-      "minUniqueItems": 1,
-      "maxUniqueItems": 1,
-      "selectors": [
-        "marketplace_id"
-      ],
-      "items": {
-        "type": "object",
-        "required": [
-          "value"
-        ],
-        "properties": {
-          "marketplace_id": {
-            "$ref": "#/$defs/marketplace_id"
-          },
-          "value": {
-            "title": "医疗器械销售渠道",
-            "description": "请提供产品所需的销售渠道。此销售渠道取决于欧盟委员会医疗器械法规 [MDR] 或体外诊断医疗器械法规 [IVDR] 是否将产品视为医疗器械。",
-            "editable": true,
-            "hidden": false,
-            "examples": [
-              "非处方药零售"
-            ],
-            "type": "string",
-            "enum": [
-              "professional_use",
-              "prescription_other",
-              "prescription_pharmacy",
-              "prescription_retail",
-              "exempt",
-              "otc_other",
-              "otc_pharmacy",
-              "otc_retail"
-            ],
-            "enumNames": [
-              "专业用途",
-              "处方药其他",
-              "处方药药房",
-              "处方药零售",
-              "豁免医疗器械 [MDR] 和体外诊断医疗器械 [IVDR] 分类",
-              "非处方药其他",
-              "非处方药药房",
-              "非处方药零售"
-            ]
-          }
-        },
-        "additionalProperties": false
-      }
-    },
-    "eu_spare_part_availability_duration": {
-      "title": "欧盟备件可用性持续时间",
-      "description": "根据法国和欧盟备件法规的要求，提供从产品预期停产日期起备件可用的年限。年限是指该备件的最短持续时间。",
-      "examples": [
-        "2 年"
-      ],
-      "type": "array",
-      "minItems": 1,
-      "minUniqueItems": 1,
-      "maxUniqueItems": 1,
-      "selectors": [
-        "marketplace_id"
-      ],
-      "items": {
-        "type": "object",
-        "required": [
-          "unit",
-          "value"
-        ],
-        "properties": {
-          "value": {
-            "title": "欧盟备件可用性持续时间",
-            "description": "根据法国和欧盟备件法规的要求，提供从产品预期停产日期起备件可用的年限。年限是指该备件的最短持续时间。",
-            "editable": true,
-            "hidden": false,
-            "examples": [
-              "2"
-            ],
-            "type": "number",
-            "minimum": 0,
-            "maximum": 100,
-            "maxLength": 3,
-            "multipleOf": 1
-          },
-          "unit": {
-            "title": "欧盟备件可用性持续时间单位",
-            "description": "选择备件可用性持续时间的计量单位",
-            "editable": true,
-            "hidden": false,
-            "examples": [
-              "年"
-            ],
-            "type": "string",
-            "enum": [
-              "years"
-            ],
-            "enumNames": [
-              "年"
-            ]
-          },
-          "marketplace_id": {
-            "$ref": "#/$defs/marketplace_id"
-          }
-        },
-        "additionalProperties": false
-      }
-    },
     "dsa_responsible_party_address": {
       "title": "负责人的电子邮件或电子地址",
       "description": "说明欧盟责任人的电子邮件地址或 URL，以遵守《通用产品安全法规》(GPSR)。如果您过去已经提交过该责任人的信息，请确保使用相同的电子邮件或 URL。",
@@ -15546,9 +14027,9 @@
       },
       "then": {
         "required": [
-          "is_fragile",
-          "manufacturer",
-          "power_plug_type"
+          "distribution_designation",
+          "is_exclusive_product",
+          "manufacturer"
         ]
       }
     },
@@ -16464,149 +14945,55 @@
       }
     },
     {
-      "if": {
-        "anyOf": [
-          {
-            "allOf": [
-              {
-                "not": {
-                  "required": [
-                    "parentage_level"
-                  ],
-                  "properties": {
-                    "parentage_level": {
-                      "contains": {
-                        "required": [
-                          "value"
-                        ],
-                        "properties": {
-                          "value": {
-                            "enum": [
-                              "parent"
-                            ]
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              },
-              {
-                "not": {
-                  "required": [
-                    "parentage_level"
-                  ],
-                  "properties": {
-                    "parentage_level": {
-                      "items": {
-                        "required": [
-                          "value"
-                        ]
-                      }
-                    }
-                  }
-                }
-              },
-              {
-                "not": {
-                  "required": [
-                    "skip_offer"
-                  ],
-                  "properties": {
-                    "skip_offer": {
-                      "contains": {
-                        "required": [
-                          "value"
-                        ],
-                        "properties": {
-                          "value": {
-                            "enum": [true]
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "allOf": [
-              {
-                "not": {
-                  "required": [
-                    "parentage_level"
-                  ],
-                  "properties": {
-                    "parentage_level": {
-                      "contains": {
-                        "required": [
-                          "value"
-                        ],
-                        "properties": {
-                          "value": {
-                            "enum": [
-                              "parent"
-                            ]
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              },
-              {
-                "not": {
-                  "required": [
-                    "parentage_level"
-                  ],
-                  "properties": {
-                    "parentage_level": {
-                      "contains": {
-                        "required": [
-                          "value"
-                        ],
-                        "properties": {
-                          "value": {
-                            "enum": [
-                              "parent"
-                            ]
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              },
-              {
-                "not": {
-                  "required": [
-                    "skip_offer"
-                  ],
-                  "properties": {
-                    "skip_offer": {
-                      "contains": {
-                        "required": [
-                          "value"
-                        ],
-                        "properties": {
-                          "value": {
-                            "enum": [true]
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            ]
+      "properties": {
+        "list_price": {
+          "items": {
+            "if": {
+              "required": [
+                "currency"
+              ]
+            },
+            "then": {
+              "required": [
+                "value"
+              ]
+            }
           }
-        ]
-      },
-      "then": {
-        "required": [
-          "list_price"
-        ]
+        }
+      }
+    },
+    {
+      "properties": {
+        "list_price": {
+          "items": {
+            "if": {
+              "required": [
+                "currency"
+              ],
+              "properties": {
+                "currency": {
+                  "enum": [
+                    "JPY"
+                  ]
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "value": {
+                  "multipleOf": 1
+                }
+              }
+            },
+            "else": {
+              "properties": {
+                "value": {
+                  "multipleOf": 0.01
+                }
+              }
+            }
+          }
+        }
       }
     },
     {
@@ -18525,47 +16912,6 @@
     },
     {
       "if": {
-        "required": [
-          "ec_medical_device_sales_channel"
-        ],
-        "properties": {
-          "ec_medical_device_sales_channel": {
-            "contains": {
-              "required": [
-                "value"
-              ],
-              "properties": {
-                "value": {
-                  "enum": [
-                    "otc_other",
-                    "otc_pharmacy",
-                    "otc_retail",
-                    "prescription_other",
-                    "prescription_pharmacy",
-                    "prescription_retail",
-                    "professional_use"
-                  ]
-                }
-              }
-            }
-          }
-        }
-      },
-      "then": {
-        "properties": {
-          "language": {
-            "items": {
-              "required": [
-                "type",
-                "value"
-              ]
-            }
-          }
-        }
-      }
-    },
-    {
-      "if": {
         "allOf": [
           {
             "required": [
@@ -19158,110 +17504,6 @@
     },
     {
       "if": {
-        "anyOf": [
-          {
-            "allOf": [
-              {
-                "not": {
-                  "required": [
-                    "parentage_level"
-                  ],
-                  "properties": {
-                    "parentage_level": {
-                      "items": {
-                        "required": [
-                          "value"
-                        ]
-                      }
-                    }
-                  }
-                }
-              },
-              {
-                "not": {
-                  "required": [
-                    "power_plug_type"
-                  ],
-                  "properties": {
-                    "power_plug_type": {
-                      "contains": {
-                        "required": [
-                          "value"
-                        ],
-                        "properties": {
-                          "value": {
-                            "enum": [
-                              "no_plug"
-                            ]
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "allOf": [
-              {
-                "not": {
-                  "required": [
-                    "parentage_level"
-                  ],
-                  "properties": {
-                    "parentage_level": {
-                      "contains": {
-                        "required": [
-                          "value"
-                        ],
-                        "properties": {
-                          "value": {
-                            "enum": [
-                              "parent"
-                            ]
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              },
-              {
-                "not": {
-                  "required": [
-                    "power_plug_type"
-                  ],
-                  "properties": {
-                    "power_plug_type": {
-                      "contains": {
-                        "required": [
-                          "value"
-                        ],
-                        "properties": {
-                          "value": {
-                            "enum": [
-                              "no_plug"
-                            ]
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            ]
-          }
-        ]
-      },
-      "then": {
-        "required": [
-          "accepted_voltage_frequency"
-        ]
-      }
-    },
-    {
-      "if": {
         "allOf": [
           {
             "required": [
@@ -19488,46 +17730,6 @@
         "required": [
           "pattern"
         ]
-      }
-    },
-    {
-      "if": {
-        "required": [
-          "is_expiration_dated_product"
-        ],
-        "properties": {
-          "is_expiration_dated_product": {
-            "contains": {
-              "required": [
-                "value"
-              ],
-              "properties": {
-                "value": {
-                  "enum": [true]
-                }
-              }
-            }
-          }
-        }
-      },
-      "then": {
-        "properties": {
-          "product_expiration_type": {
-            "items": {
-              "required": [
-                "value"
-              ]
-            }
-          },
-          "fc_shelf_life": {
-            "items": {
-              "required": [
-                "unit",
-                "value"
-              ]
-            }
-          }
-        }
       }
     },
     {
@@ -25048,7 +23250,7 @@
                   "properties": {
                     "fulfillment_channel_code": {
                       "enum": [
-                        "AMAZON_EU"
+                        "AMAZON_JP"
                       ]
                     }
                   }
@@ -25753,7 +23955,7 @@
                       "properties": {
                         "fulfillment_channel_code": {
                           "enum": [
-                            "AMAZON_EU"
+                            "AMAZON_JP"
                           ]
                         }
                       }
@@ -25794,7 +23996,7 @@
                       "properties": {
                         "fulfillment_channel_code": {
                           "enum": [
-                            "AMAZON_EU"
+                            "AMAZON_JP"
                           ]
                         }
                       }

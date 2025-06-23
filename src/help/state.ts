@@ -18,6 +18,12 @@ export const imageTypeJsonMap = {
   OfferImage4: 'other_offer_image_locator_4',
   OfferImage5: 'other_offer_image_locator_5',
   EEGL: 'image_locator_eegl',
+  PS01: 'image_locator_ps01',
+  PS02: 'image_locator_ps02',
+  PS03: 'image_locator_ps03',
+  PS04: 'image_locator_ps04',
+  PS05: 'image_locator_ps05',
+  PS06: 'image_locator_ps06',
 }
 
 export function getImageType(key: string): string | undefined {
