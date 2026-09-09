@@ -20,11 +20,12 @@ function parseNumber(value: string | number | undefined) {
   return Number.isFinite(parsed) ? parsed : undefined
 }
 
-function JsonPreview({ value, filename }: { value: unknown, filename: string }) {
-  const content = JSON.stringify(value, null, 2)
-  const copy = () => navigator.clipboard.writeText(content)
+function OutputPreview({ value, filename, code }: { value: unknown, filename: string, code: string }) {
+  const [activeTab, setActiveTab] = useState<string | null>('json')
+  const json = JSON.stringify(value, null, 2)
+  const copy = () => navigator.clipboard.writeText(activeTab === 'typescript' ? code : json)
   const download = () => {
-    const url = URL.createObjectURL(new Blob([content], { type: 'application/json' }))
+    const url = URL.createObjectURL(new Blob([json], { type: 'application/json' }))
     const anchor = document.createElement('a')
     anchor.href = url
     anchor.download = filename
@@ -32,17 +33,41 @@ function JsonPreview({ value, filename }: { value: unknown, filename: string }) 
     URL.revokeObjectURL(url)
   }
   return (
-    <Paper className="json-panel" p="md" radius="sm" withBorder>
-      <Group justify="space-between" mb="sm">
-        <Text fw={600}>Generated JSON</Text>
-        <Group gap="xs">
-          <Tooltip label="Copy JSON"><ActionIcon aria-label="Copy JSON" onClick={copy} variant="subtle"><IconCopy size={18} /></ActionIcon></Tooltip>
-          <Tooltip label="Download JSON"><ActionIcon aria-label="Download JSON" onClick={download} variant="subtle"><IconDownload size={18} /></ActionIcon></Tooltip>
+    <Paper className="output-panel" p="md" radius="sm" withBorder>
+      <Tabs onChange={setActiveTab} value={activeTab}>
+        <Group justify="space-between" mb="sm">
+          <Tabs.List>
+            <Tabs.Tab value="json">Generated JSON</Tabs.Tab>
+            <Tabs.Tab value="typescript">TypeScript code</Tabs.Tab>
+          </Tabs.List>
+          <Group gap="xs">
+            <Tooltip label={activeTab === 'typescript' ? 'Copy TypeScript code' : 'Copy JSON'}>
+              <ActionIcon aria-label={activeTab === 'typescript' ? 'Copy TypeScript code' : 'Copy JSON'} onClick={copy} variant="subtle">
+                <IconCopy size={18} />
+              </ActionIcon>
+            </Tooltip>
+            {activeTab === 'json' && (
+              <Tooltip label="Download JSON">
+                <ActionIcon aria-label="Download JSON" onClick={download} variant="subtle">
+                  <IconDownload size={18} />
+                </ActionIcon>
+              </Tooltip>
+            )}
+          </Group>
         </Group>
-      </Group>
-      <Code block>{content}</Code>
+        <Tabs.Panel value="json">
+          <Code block>{json}</Code>
+        </Tabs.Panel>
+        <Tabs.Panel value="typescript">
+          <Code block>{code}</Code>
+        </Tabs.Panel>
+      </Tabs>
     </Paper>
   )
+}
+
+function objectLiteral(value: unknown) {
+  return JSON.stringify(value, null, 2)
 }
 
 function ListingBuilder() {
@@ -52,6 +77,13 @@ function ListingBuilder() {
   const update = (key: string, value: unknown) => setData(current => ({ ...current, [key]: value }))
   const builderData = addListPrice ? data : { ...data, list_price: undefined }
   const output = new ListingProduct({ marketplace_id: marketplaceId, data: builderData, type: listingType }).main()
+  const code = `import { ListingProduct } from 'spapi-listing-builder'
+
+const listing = new ListingProduct({
+  marketplace_id: ${JSON.stringify(marketplaceId)},
+  data: ${objectLiteral(builderData)},
+  type: ${JSON.stringify(listingType)},
+}).main()`
   return (
     <div className="workspace-grid">
       <Stack gap="md">
@@ -89,7 +121,7 @@ function ListingBuilder() {
           )}
         </Paper>
       </Stack>
-      <JsonPreview filename="listing.json" value={output} />
+      <OutputPreview code={code} filename="listing.json" value={output} />
     </div>
   )
 }
@@ -100,6 +132,16 @@ function FeedBuilder() {
   const [rows, setRows] = useState<any[]>([{ sku: 'PLAYGROUND-SKU-001', sell_price: 24.99, quantity: 0, deal_time: 2, parent_sku: 'PARENT-SKU-001', product_type: 'HOME', title: 'Feed product', imgs: [{ type: 'Main', url: 'https://example.com/item.jpg' }] }])
   const replace = (index: number, key: string, value: unknown) => setRows(current => current.map((row, rowIndex) => rowIndex === index ? { ...row, [key]: value } : row))
   const output = kind === 'product' ? new FeedProduct(sellerId, marketplaceId, rows).main() : kind === 'price' ? new FeedPrice(sellerId, rows).main() : kind === 'quantity' ? new FeedQuantity(sellerId, rows).main() : kind === 'images' ? new FeedImg(sellerId, rows).main() : new FeedRelation(sellerId, rows).main()
+  const feedCode = {
+    product: `new FeedProduct(${JSON.stringify(sellerId)}, ${JSON.stringify(marketplaceId)}, ${objectLiteral(rows)}).main()`,
+    price: `new FeedPrice(${JSON.stringify(sellerId)}, ${objectLiteral(rows)}).main()`,
+    quantity: `new FeedQuantity(${JSON.stringify(sellerId)}, ${objectLiteral(rows)}).main()`,
+    images: `new FeedImg(${JSON.stringify(sellerId)}, ${objectLiteral(rows)}).main()`,
+    relation: `new FeedRelation(${JSON.stringify(sellerId)}, ${objectLiteral(rows)}).main()`,
+  }[kind]
+  const code = `import { ${kind === 'product' ? 'FeedProduct' : kind === 'price' ? 'FeedPrice' : kind === 'quantity' ? 'FeedQuantity' : kind === 'images' ? 'FeedImg' : 'FeedRelation'} } from 'spapi-listing-builder'
+
+const feed = ${feedCode}`
   const add = () => setRows(current => [...current, { ...current[0], sku: `PLAYGROUND-SKU-${current.length + 1}` }])
   const remove = (index: number) => setRows(current => current.length === 1 ? current : current.filter((_, currentIndex) => currentIndex !== index))
   return (
@@ -142,7 +184,7 @@ function FeedBuilder() {
           ))}
         </Stack>
       </Paper>
-      <JsonPreview filename={`${kind}-feed.json`} value={output} />
+      <OutputPreview code={code} filename={`${kind}-feed.json`} value={output} />
     </div>
   )
 }

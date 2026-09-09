@@ -14,15 +14,17 @@ body {
   grid-template-columns: minmax(0, 1fr) minmax(360px, 0.9fr);
 }
 
-.json-panel {
+.output-panel {
   align-self: start;
+  min-width: 0;
   position: sticky;
   top: 76px;
 }
 
-.json-panel pre {
+.output-panel pre {
   max-height: calc(100vh - 170px);
   overflow: auto;
+  white-space: pre;
 }
 
 @media (max-width: 900px) {
@@ -30,7 +32,7 @@ body {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .json-panel {
+  .output-panel {
     position: static;
   }
 }
