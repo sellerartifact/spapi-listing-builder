@@ -1,0 +1,36 @@
+body {
+  margin: 0;
+  background: #f4f7f5;
+}
+
+.app-content {
+  margin: 0 auto;
+  max-width: 1440px;
+}
+
+.workspace-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.9fr);
+}
+
+.json-panel {
+  align-self: start;
+  position: sticky;
+  top: 76px;
+}
+
+.json-panel pre {
+  max-height: calc(100vh - 170px);
+  overflow: auto;
+}
+
+@media (max-width: 900px) {
+  .workspace-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .json-panel {
+    position: static;
+  }
+}
