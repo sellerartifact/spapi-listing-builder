@@ -15,6 +15,28 @@ _description_
 
 > Used to quickly and efficiently generate and validate npm packages that conform to the Amazon SP-API LISTING JSON structure.
 
+## Playground Demo
+
+The project includes a live React + Mantine playground built with Rspack for visual testing of listing and feed payload generation.
+
+- Live demo: https://spapi-listing-builder.vercel.app/
+- Features: Listing builder, Feed builder, live JSON output, TypeScript code preview, copy and download actions
+
+## Local development
+
+```bash
+pnpm install
+pnpm --filter spapi-listing-builder-playground dev
+```
+
+Then open http://localhost:3000/ in your browser.
+
+For a production build:
+
+```bash
+pnpm --filter spapi-listing-builder-playground build
+```
+
 ## install
 
 ```

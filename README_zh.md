@@ -15,6 +15,28 @@ _description_
 
 > 用于快速高效地生成并校验符合Amazon SP-API LISTING JSON结构的npm包。
 
+## 在线演示
+
+该项目包含一个基于 React + Mantine + Rspack 构建的在线演示页面，用于可视化生成 Listing 和 Feed 的 JSON 结果。
+
+- 在线地址: https://spapi-listing-builder.vercel.app/
+- 演示能力: Listing 构建器、Feed 构建器、实时 JSON 预览、TypeScript 代码预览、复制和下载操作
+
+## 本地开发
+
+```bash
+pnpm install
+pnpm --filter spapi-listing-builder-playground dev
+```
+
+随后打开 http://localhost:3000/ 即可使用。
+
+如需本地构建生产包：
+
+```bash
+pnpm --filter spapi-listing-builder-playground build
+```
+
 ## 安装
 
 ```
